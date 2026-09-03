@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Cinzel', serif;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #0c0a09;
+    background-image: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.06) 0%, transparent 60%);
+    color: #ebe5da;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+/* =========================================================================
+   WHITE (LIGHT) THEME ENHANCEMENTS - Pavitra Shwet / Clean Ivory White
+   ========================================================================= */
+
+.theme-white {
+  color-scheme: light;
+}
+
+.theme-white body {
+  background-color: #faf8f5 !important;
+  background-image: radial-gradient(circle at 50% 0%, rgba(184, 134, 11, 0.06) 0%, transparent 60%) !important;
+  color: #1c1917 !important;
+}
+
+/* Base surface overrides in white mode */
+.theme-white .bg-\[\#0C0A09\],
+.theme-white .bg-\[\#0c0a09\],
+.theme-white .bg-\[\#0E0C0A\],
+.theme-white .bg-\[\#070605\],
+.theme-white .bg-\[\#13100D\],
+.theme-white .bg-\[\#0E0F12\],
+.theme-white .bg-\[\#0D0D0D\] {
+  background-color: #faf8f5 !important;
+}
+
+/* Card & panel surfaces in white mode */
+.theme-white .bg-\[\#161310\],
+.theme-white .bg-\[\#181920\],
+.theme-white .bg-\[\#14151B\],
+.theme-white .bg-\[\#131418\] {
+  background-color: #ffffff !important;
+}
+
+/* Secondary inset containers in white mode */
+.theme-white .bg-\[\#110E0C\],
+.theme-white .bg-\[\#100E0C\],
+.theme-white .bg-\[\#121316\],
+.theme-white .bg-\[\#1C1712\],
+.theme-white .bg-\[\#1A1713\],
+.theme-white .bg-\[\#201A14\],
+.theme-white .bg-\[\#241E18\],
+.theme-white .bg-\[\#1C1E26\],
+.theme-white .bg-\[\#1F202A\] {
+  background-color: #f5f1e9 !important;
+}
+
+.theme-white .bg-\[\#0C0A09\]\/90,
+.theme-white .bg-\[\#070605\]\/90,
+.theme-white .bg-\[\#0E0F12\]\/90 {
+  background-color: rgba(250, 248, 245, 0.92) !important;
+}
+
+/* Text overrides in white mode */
+.theme-white .text-white,
+.theme-white .text-\[\#EBE5DA\],
+.theme-white .text-\[\#ebe5da\],
+.theme-white .text-\[\#E5E7EB\],
+.theme-white .text-\[\#D4D6E2\] {
+  color: #1c1917 !important;
+}
+
+.theme-white .text-\[\#A89E90\],
+.theme-white .text-\[\#B8B0A2\],
+.theme-white .text-\[\#C7BFB4\],
+.theme-white .text-\[\#BABCCE\],
+.theme-white .text-\[\#8A8175\],
+.theme-white .text-\[\#8E90A2\],
+.theme-white .text-\[\#9E9EAA\],
+.theme-white .text-\[\#7A7165\],
+.theme-white .text-\[\#6B6E7E\],
+.theme-white .text-\[\#7E8092\] {
+  color: #57534e !important;
+}
+
+/* Border overrides in white mode */
+.theme-white .border-\[\#261F18\],
+.theme-white .border-\[\#2E261D\],
+.theme-white .border-\[\#3A3024\],
+.theme-white .border-\[\#3E3326\],
+.theme-white .border-\[\#2B2D38\],
+.theme-white .border-\[\#2F3240\],
+.theme-white .border-\[\#252734\],
+.theme-white .border-\[\#201A14\],
+.theme-white .border-\[\#282A36\],
+.theme-white .border-\[\#333\] {
+  border-color: #e5dfd3 !important;
+}
+
+.theme-white .divide-\[\#261F18\],
+.theme-white .divide-\[\#252734\] > * + * {
+  border-color: #e5dfd3 !important;
+}
+
+/* Cards shadow in white mode */
+.theme-white .shadow-xl,
+.theme-white .shadow-2xl {
+  box-shadow: 0 10px 25px -4px rgba(40, 30, 20, 0.06), 0 4px 8px -2px rgba(40, 30, 20, 0.03) !important;
+}
+
+/* Form inputs in white mode */
+.theme-white input,
+.theme-white textarea,
+.theme-white select {
+  background-color: #ffffff !important;
+  color: #1c1917 !important;
+  border-color: #d8cfbf !important;
+}
+
+.theme-white input::placeholder,
+.theme-white textarea::placeholder {
+  color: #a89e90 !important;
+}
+
+/* Navbar in white mode */
+.theme-white #main-navbar {
+  transition: all 0.3s ease;
+}
+
+.theme-white .glass-nav {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-bottom: 1px solid rgba(184, 134, 11, 0.2) !important;
+}
+
+.theme-white .glass-card {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1px solid rgba(184, 134, 11, 0.25) !important;
+}
+
+.theme-white ::-webkit-scrollbar-track {
+  background: #f5f2eb;
+}
+
+.theme-white ::-webkit-scrollbar-thumb {
+  background: #d8cfbf;
+}
+
+.theme-white ::-webkit-scrollbar-thumb:hover {
+  background: #b8860b;
+}
+
+/* Elegant Light-Black & Warm Charcoal Accents */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #faeac2 0%, #d4af37 50%, #b38e2d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #d4af37 0%, #b8962f 100%);
+}
+
+.border-gold-glow {
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 4px 25px -4px rgba(212, 175, 55, 0.15);
+}
+
+.elegant-radial-glow {
+  background-image: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.14) 0%, transparent 70%);
+}
+
+.temple-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(212, 175, 55, 0.08) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+.glass-card {
+  background: rgba(22, 19, 16, 0.92);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.glass-nav {
+  background: rgba(12, 10, 9, 0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0a09;
+}
+::-webkit-scrollbar-thumb {
+  background: #2e261f;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+

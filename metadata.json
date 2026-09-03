@@ -1,0 +1,6 @@
+{
+  "name": "Trilok Shivling Art",
+  "description": "Explore the curated Shivling collection from Trilok Shivling Art. Discover beautifully selected Narmadeshwar Shivlings for home temples and spiritual spaces with direct WhatsApp enquiries.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
