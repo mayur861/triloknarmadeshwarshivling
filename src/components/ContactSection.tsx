@@ -90,7 +90,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
           <div className="inline-flex items-center justify-center gap-3 mb-1">
             <div className="h-[1.5px] w-6 bg-[#D4AF37]" />
             <span className="text-xs font-semibold tracking-[0.3em] text-[#D4AF37] uppercase">
@@ -98,7 +98,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
             </span>
             <div className="h-[1.5px] w-6 bg-[#D4AF37]" />
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
             Let’s Find the Right Shivling for You
           </h2>
           <p className="text-sm sm:text-base text-[#B8B0A2] max-w-2xl mx-auto leading-relaxed">
@@ -106,12 +106,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Left Column: Direct Contact Info & Conversion Channels */}
           <div className="lg:col-span-5 space-y-6">
             
-            <div className="p-8 bg-[#161310] border border-[#2E261D] shadow-xl space-y-6 rounded-sm">
+            <div className="p-6 sm:p-8 bg-[#161310] border border-[#2E261D] shadow-xl space-y-6 rounded-sm">
               <h3 className="font-serif text-xl font-bold text-white pb-3 border-b border-[#261F18]">
                 Direct Contacts
               </h3>
@@ -218,10 +218,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
 
           {/* Right Column: Premium Enquiry Form */}
           <div className="lg:col-span-7">
-            <div className="p-8 sm:p-10 bg-[#161310] border border-[#2E261D] shadow-2xl relative rounded-sm">
+            <div className="p-6 sm:p-8 md:p-10 bg-[#161310] border border-[#2E261D] shadow-2xl relative rounded-sm">
               
               <div className="mb-6 pb-4 border-b border-[#261F18]">
-                <h3 className="font-serif text-xl font-bold text-white">
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-white">
                   Send an Enquiry to Our Team
                 </h3>
                 <p className="text-xs text-[#B8B0A2] mt-1">

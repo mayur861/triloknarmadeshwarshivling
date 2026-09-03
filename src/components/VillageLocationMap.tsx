@@ -42,7 +42,7 @@ export const VillageLocationMap: React.FC = () => {
             </span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
             Handcrafted at <span className="text-[#D4AF37] underline decoration-[#D4AF37]/40 underline-offset-8">BAKAWAN</span>, Madhya Pradesh
           </h2>
           
@@ -83,7 +83,7 @@ export const VillageLocationMap: React.FC = () => {
             </div>
 
             {/* Embedded Google Map */}
-            <div className="relative w-full h-[320px] sm:h-[380px] bg-[#110E0C]">
+            <div className="relative w-full h-[260px] sm:h-[340px] md:h-[380px] bg-[#110E0C]">
               <iframe
                 title="Bakawan Village Madhya Pradesh Location Map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14787.218558450702!2d75.9262!3d22.1884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962d31289297669%3A0xb35e1654877fae67!2sBakawan%2C%20Madhya%20Pradesh%20451113!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
@@ -117,7 +117,7 @@ export const VillageLocationMap: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="btn-redirect-google-maps"
-                className="w-full sm:w-auto px-6 py-2.5 bg-[#D4AF37] hover:bg-[#faeac2] text-black text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md shadow-[#D4AF37]/20 transition-all active:scale-98"
+                className="w-full sm:w-auto px-6 py-2.5 bg-[#D4AF37] hover:bg-[#faeac2] text-black text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md shadow-[#D4AF37]/20 transition-all active:scale-98 min-h-[42px]"
               >
                 <Navigation className="w-4 h-4 fill-current" />
                 <span>Get Directions on Map</span>
@@ -134,11 +134,11 @@ export const VillageLocationMap: React.FC = () => {
             className="lg:col-span-5 flex flex-col justify-between space-y-6"
           >
             {/* Village Significance Card */}
-            <div className="p-6 bg-[#161310] border border-[#2E261D] rounded-sm space-y-4 shadow-xl">
+            <div className="p-5 sm:p-6 bg-[#161310] border border-[#2E261D] rounded-sm space-y-4 shadow-xl">
               <div className="flex items-center justify-between pb-3 border-b border-[#261F18]">
                 <div className="flex items-center space-x-2">
                   <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-                  <h3 className="font-serif text-lg font-bold text-white">
+                  <h3 className="font-serif text-base sm:text-lg font-bold text-white">
                     Why Bakawan is Sacred
                   </h3>
                 </div>
@@ -157,20 +157,20 @@ export const VillageLocationMap: React.FC = () => {
                   Proximity & Distance to Bakawan:
                 </span>
                 
-                <div className="grid grid-cols-2 gap-2 text-xs">
-                  <div className="p-2.5 bg-[#120F0C] border border-[#261F18] flex items-center justify-between">
+                <div className="grid grid-cols-2 gap-1.5 sm:gap-2 text-[11px] sm:text-xs">
+                  <div className="p-2 sm:p-2.5 bg-[#120F0C] border border-[#261F18] flex items-center justify-between">
                     <span className="text-[#A89E90]">Barwaha:</span>
                     <span className="text-[#EBE5DA] font-bold">~15 km</span>
                   </div>
-                  <div className="p-2.5 bg-[#120F0C] border border-[#261F18] flex items-center justify-between">
+                  <div className="p-2 sm:p-2.5 bg-[#120F0C] border border-[#261F18] flex items-center justify-between">
                     <span className="text-[#A89E90]">Omkareshwar:</span>
                     <span className="text-[#EBE5DA] font-bold">~38 km</span>
                   </div>
-                  <div className="p-2.5 bg-[#120F0C] border border-[#261F18] flex items-center justify-between">
+                  <div className="p-2 sm:p-2.5 bg-[#120F0C] border border-[#261F18] flex items-center justify-between">
                     <span className="text-[#A89E90]">Maheshwar:</span>
                     <span className="text-[#EBE5DA] font-bold">~45 km</span>
                   </div>
-                  <div className="p-2.5 bg-[#120F0C] border border-[#261F18] flex items-center justify-between">
+                  <div className="p-2 sm:p-2.5 bg-[#120F0C] border border-[#261F18] flex items-center justify-between">
                     <span className="text-[#A89E90]">Indore Airport:</span>
                     <span className="text-[#EBE5DA] font-bold">~85 km</span>
                   </div>
@@ -179,7 +179,7 @@ export const VillageLocationMap: React.FC = () => {
             </div>
 
             {/* Visit / Artisan Direct Contact Box */}
-            <div className="p-6 bg-gradient-to-br from-[#181512] to-[#120F0C] border border-[#D4AF37]/40 rounded-sm space-y-4 shadow-xl">
+            <div className="p-5 sm:p-6 bg-gradient-to-br from-[#181512] to-[#120F0C] border border-[#D4AF37]/40 rounded-sm space-y-4 shadow-xl">
               <div>
                 <span className="text-[10px] uppercase tracking-widest text-[#D4AF37] font-bold block mb-1">
                   ✦ Direct From Artisan Center
@@ -192,25 +192,26 @@ export const VillageLocationMap: React.FC = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-2.5 pt-1">
+              <div className="grid grid-cols-2 gap-2 sm:gap-2.5 pt-1">
                 <a
                   href={`https://wa.me/91${BRAND_PHONE}?text=${encodeURIComponent('Namaste, I want to enquire about visiting Bakawan workshop or ordering Narmadeshwar Shivling.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   id="btn-village-whatsapp"
-                  className="py-2.5 px-3 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-1.5 shadow-md shadow-[#25D366]/20 transition-all active:scale-98"
+                  className="py-2.5 px-2 sm:px-3 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-1.5 shadow-md shadow-[#25D366]/20 transition-all active:scale-98 min-h-[42px]"
                 >
-                  <WhatsAppIcon className="w-4 h-4" />
+                  <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
                   <span>WhatsApp</span>
                 </a>
 
                 <a
                   href={getTelUrl()}
                   id="btn-village-call"
-                  className="py-2.5 px-3 bg-[#1F1B16] hover:bg-[#29231D] border border-[#3A3024] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-1.5 transition-colors"
+                  className="py-2.5 px-2 sm:px-3 bg-[#1F1B16] hover:bg-[#29231D] border border-[#3A3024] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-1.5 transition-colors min-h-[42px]"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#D4AF37]" />
-                  <span>Call {BRAND_PHONE}</span>
+                  <Phone className="w-3.5 h-3.5 text-[#D4AF37] flex-shrink-0" />
+                  <span className="hidden sm:inline">Call {BRAND_PHONE}</span>
+                  <span className="sm:hidden">Call Us</span>
                 </a>
               </div>
             </div>

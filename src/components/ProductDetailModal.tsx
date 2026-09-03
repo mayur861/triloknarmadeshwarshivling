@@ -48,14 +48,14 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         </div>
 
         {/* Modal Scrollable Content Body */}
-        <div className="overflow-y-auto p-6 sm:p-8 space-y-8 flex-grow">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <div className="overflow-y-auto p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8 flex-grow">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
             
             {/* Left Column: Image Showcase */}
             <div className="md:col-span-6 space-y-4">
               
               {/* Main Image */}
-              <div className="relative h-72 sm:h-96 overflow-hidden bg-[#0C0A09] border border-[#261F18] rounded-sm">
+              <div className="relative h-60 sm:h-80 md:h-96 overflow-hidden bg-[#0C0A09] border border-[#261F18] rounded-sm">
                 <img
                   src={product.images[activeImageIndex] || product.images[0]}
                   alt={product.name}
@@ -69,12 +69,12 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
               {/* Thumbnails Gallery */}
               {product.images.length > 1 && (
-                <div className="flex gap-3 overflow-x-auto pb-1">
+                <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-1 scrollbar-none">
                   {product.images.map((imgUrl, idx) => (
                     <button
                       key={idx}
                       onClick={() => setActiveImageIndex(idx)}
-                      className={`relative w-20 h-20 overflow-hidden border-2 flex-shrink-0 transition-all cursor-pointer rounded-sm ${
+                      className={`relative w-16 h-16 sm:w-20 sm:h-20 overflow-hidden border-2 flex-shrink-0 transition-all cursor-pointer rounded-sm ${
                         activeImageIndex === idx
                           ? 'border-[#D4AF37] shadow-md shadow-[#D4AF37]/30'
                           : 'border-[#2E261D] opacity-60 hover:opacity-100'
@@ -204,14 +204,14 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         </div>
 
         {/* Modal Action Footer */}
-        <div className="px-6 py-4 bg-[#110E0C] border-t border-[#261F18] flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="px-4 sm:px-6 py-3.5 sm:py-4 bg-[#110E0C] border-t border-[#261F18] flex flex-col sm:flex-row items-center justify-between gap-3">
           
           <div className="text-xs text-[#A89E90] text-center sm:text-left">
             Contact Trilok Shivling Art directly for high-res photos, packaging & safe doorstep delivery across India.
           </div>
 
-          <div className="flex items-center gap-2.5 w-full sm:w-auto">
-            {/* WhatsApp Enquiry Button */}
+          <div className="grid grid-cols-2 sm:flex items-center gap-2 sm:gap-2.5 w-full sm:w-auto">
+            {/* WhatsApp Enquiry Button - Full width on phone, natural width on tablet/laptop */}
             <button
               type="button"
               onClick={() => {
@@ -229,20 +229,20 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   );
                 }
               }}
-              className="flex-1 sm:flex-initial px-5 py-3 font-bold text-xs uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] transition-all flex items-center justify-center space-x-2 shadow-md shadow-[#25D366]/25 rounded-sm cursor-pointer"
+              className="col-span-2 sm:col-auto px-4 sm:px-5 py-3 font-bold text-xs uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] transition-all flex items-center justify-center space-x-2 shadow-md shadow-[#25D366]/25 rounded-sm cursor-pointer min-h-[42px]"
             >
-              <WhatsAppIcon className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
               <span>WhatsApp Enquiry</span>
             </button>
 
             {/* Direct Call Button */}
             <a
               href={getTelUrl()}
-              className="px-4 py-3 font-bold text-xs uppercase tracking-wider text-white bg-[#1C1712] hover:bg-[#261F18] border border-[#3A3024] transition-colors flex items-center justify-center space-x-1.5 rounded-sm"
+              className="col-span-1 sm:col-auto px-3 sm:px-4 py-3 font-bold text-xs uppercase tracking-wider text-white bg-[#1C1712] hover:bg-[#261F18] border border-[#3A3024] transition-colors flex items-center justify-center space-x-1.5 rounded-sm min-h-[42px]"
               title={`Call ${BRAND_PHONE}`}
             >
-              <Phone className="w-4 h-4 text-[#D4AF37]" />
-              <span className="hidden md:inline">Call {BRAND_PHONE}</span>
+              <Phone className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
+              <span>Call Us</span>
             </a>
 
             {/* Send Enquiry by Email */}
@@ -251,9 +251,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 onClose();
                 onOpenEnquiryModal(product.name);
               }}
-              className="px-4 py-3 font-bold text-xs uppercase tracking-wider text-white bg-[#1C1712] hover:bg-[#261F18] border border-[#3A3024] transition-colors flex items-center justify-center space-x-1.5 cursor-pointer rounded-sm"
+              className="col-span-1 sm:col-auto px-3 sm:px-4 py-3 font-bold text-xs uppercase tracking-wider text-white bg-[#1C1712] hover:bg-[#261F18] border border-[#3A3024] transition-colors flex items-center justify-center space-x-1.5 cursor-pointer rounded-sm min-h-[42px]"
             >
-              <Mail className="w-4 h-4 text-[#D4AF37]" />
+              <Mail className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
               <span>Email Form</span>
             </button>
           </div>

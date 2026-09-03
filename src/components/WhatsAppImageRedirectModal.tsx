@@ -214,16 +214,16 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
         className="relative w-full max-w-2xl bg-[#161310] border border-[#2E261D] shadow-2xl overflow-hidden my-auto max-h-[94vh] flex flex-col rounded-sm"
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#261F18] bg-[#110E0C]">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4 border-b border-[#261F18] bg-[#110E0C]">
           <div className="flex items-center space-x-2.5">
             <div className="w-7 h-7 bg-[#132218] border border-[#25D366]/40 flex items-center justify-center rounded-sm text-[#25D366]">
               <WhatsAppIcon className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="font-serif text-base sm:text-lg font-bold text-white">
+              <h3 className="font-serif text-sm sm:text-base md:text-lg font-bold text-white">
                 WhatsApp Enquiry Card
               </h3>
-              <p className="text-[11px] text-[#A89E90]">
+              <p className="text-[10px] sm:text-[11px] text-[#A89E90]">
                 Generated product card with reference photo & details
               </p>
             </div>
@@ -238,20 +238,20 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
         </div>
 
         {/* Modal Body */}
-        <div className="overflow-y-auto p-6 space-y-6 flex-grow">
+        <div className="overflow-y-auto p-4 sm:p-6 space-y-4 sm:space-y-6 flex-grow">
           
           {/* Status banner */}
           <div className="p-3 bg-[#132218] border border-[#25D366]/30 flex items-center justify-between gap-3 text-xs text-[#85e89d] rounded-sm">
             <div className="flex items-center space-x-2">
               <Sparkles className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
-              <span>
+              <span className="text-[11px] sm:text-xs">
                 Enquiry image generated! You can open WhatsApp directly or save the card to share in chat.
               </span>
             </div>
           </div>
 
           {/* Generated Image Preview Card */}
-          <div className="relative flex justify-center bg-[#0C0A09] p-4 border border-[#261F18] rounded-sm min-h-[280px] items-center">
+          <div className="relative flex justify-center bg-[#0C0A09] p-2 sm:p-4 border border-[#261F18] rounded-sm min-h-[220px] sm:min-h-[280px] items-center">
             {isGenerating ? (
               <div className="flex flex-col items-center justify-center py-12 space-y-3 text-[#D4AF37]">
                 <Loader2 className="w-8 h-8 animate-spin" />
@@ -274,17 +274,17 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
           </div>
 
           {/* Product Summary */}
-          <div className="flex items-center justify-between p-3.5 bg-[#110E0C] border border-[#261F18] rounded-sm text-xs">
+          <div className="flex items-center justify-between p-3 sm:p-3.5 bg-[#110E0C] border border-[#261F18] rounded-sm text-xs">
             <div>
-              <span className="font-serif font-bold text-white text-sm block">
+              <span className="font-serif font-bold text-white text-xs sm:text-sm block">
                 {product.name}
               </span>
-              <span className="text-[#A89E90]">
+              <span className="text-[10px] sm:text-xs text-[#A89E90]">
                 {product.categoryName} • Ref: {product.id}
               </span>
             </div>
             <div className="text-right">
-              <span className="font-serif font-bold text-[#D4AF37] text-base block">
+              <span className="font-serif font-bold text-[#D4AF37] text-sm sm:text-base block">
                 {product.priceFormatted}
               </span>
               <span className="text-[10px] text-[#25D366] font-semibold">
@@ -296,28 +296,28 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
         </div>
 
         {/* Modal Action Footer */}
-        <div className="px-6 py-4 bg-[#110E0C] border-t border-[#261F18] flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="px-4 sm:px-6 py-3.5 sm:py-4 bg-[#110E0C] border-t border-[#261F18] flex flex-col sm:flex-row items-center justify-between gap-3">
           
           <div className="flex items-center gap-2 w-full sm:w-auto">
             {/* Download Image Button */}
             <button
               onClick={handleDownload}
               disabled={isGenerating || !generatedImageUrl}
-              className="flex-1 sm:flex-initial px-4 py-3 text-xs font-bold uppercase tracking-wider text-white bg-[#201A14] hover:bg-[#2E261D] border border-[#3A3024] transition-all flex items-center justify-center space-x-2 cursor-pointer disabled:opacity-50 rounded-sm"
+              className="flex-1 sm:flex-initial px-3.5 sm:px-4 py-2.5 sm:py-3 text-xs font-bold uppercase tracking-wider text-white bg-[#201A14] hover:bg-[#2E261D] border border-[#3A3024] transition-all flex items-center justify-center space-x-1.5 sm:space-x-2 cursor-pointer disabled:opacity-50 rounded-sm min-h-[42px]"
               title="Save enquiry image to your device"
             >
-              <Download className="w-4 h-4 text-[#D4AF37]" />
-              <span>Save Image</span>
+              <Download className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
+              <span>Save Card</span>
             </button>
 
             {/* Copy Text Button */}
             <button
               onClick={handleCopyText}
-              className="px-3.5 py-3 text-xs font-bold uppercase tracking-wider text-[#A89E90] hover:text-white bg-[#201A14] hover:bg-[#2E261D] border border-[#3A3024] transition-all flex items-center justify-center space-x-1.5 cursor-pointer rounded-sm"
+              className="px-3.5 py-2.5 sm:py-3 text-xs font-bold uppercase tracking-wider text-[#A89E90] hover:text-white bg-[#201A14] hover:bg-[#2E261D] border border-[#3A3024] transition-all flex items-center justify-center space-x-1.5 cursor-pointer rounded-sm min-h-[42px]"
               title="Copy message text"
             >
-              {copied ? <Check className="w-4 h-4 text-[#25D366]" /> : <Copy className="w-4 h-4" />}
-              <span className="hidden sm:inline">{copied ? 'Copied' : 'Copy Text'}</span>
+              {copied ? <Check className="w-4 h-4 text-[#25D366] flex-shrink-0" /> : <Copy className="w-4 h-4 flex-shrink-0" />}
+              <span>{copied ? 'Copied' : 'Copy'}</span>
             </button>
           </div>
 
@@ -327,11 +327,11 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
-            className="w-full sm:w-auto px-6 py-3 text-xs font-bold uppercase tracking-widest text-white bg-[#25D366] hover:bg-[#20ba59] transition-all flex items-center justify-center space-x-2 shadow-lg shadow-[#25D366]/25 rounded-sm active:scale-98"
+            className="w-full sm:w-auto px-5 sm:px-6 py-3 text-xs font-bold uppercase tracking-widest text-white bg-[#25D366] hover:bg-[#20ba59] transition-all flex items-center justify-center space-x-2 shadow-lg shadow-[#25D366]/25 rounded-sm active:scale-98 min-h-[42px]"
           >
-            <WhatsAppIcon className="w-4 h-4" />
-            <span>Continue to WhatsApp Chat</span>
-            <ExternalLink className="w-3.5 h-3.5 ml-1 opacity-80" />
+            <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
+            <span>Continue to WhatsApp</span>
+            <ExternalLink className="w-3.5 h-3.5 ml-1 opacity-80 flex-shrink-0" />
           </a>
 
         </div>

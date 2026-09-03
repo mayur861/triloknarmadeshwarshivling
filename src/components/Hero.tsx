@@ -41,22 +41,22 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif leading-[1.15] mb-6 text-white tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif leading-tight sm:leading-[1.15] mb-4 sm:mb-6 text-white tracking-tight">
               Divine Shivling. <br />
               <span className="italic text-[#D4AF37]">Timeless Spirituality.</span>
             </h1>
 
             {/* Subheading */}
-            <p className="text-[#B8B0A2] text-base sm:text-lg leading-relaxed mb-8 max-w-xl font-sans">
+            <p className="text-[#B8B0A2] text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 max-w-xl font-sans">
               Discover beautifully selected Shivlings crafted by nature and presented with devotion, purity, and care for your sacred spaces.
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap gap-4 pt-2">
+            {/* Action Buttons: Stack on small phones, side-by-side on tablets & laptops */}
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-1 sm:pt-2">
               <button
                 onClick={onExploreClick}
                 id="hero-explore-btn"
-                className="px-8 py-4 bg-[#D4AF37] text-black text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-[#faeac2] transition-all cursor-pointer shadow-lg shadow-[#D4AF37]/20 active:scale-98"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-[#D4AF37] text-black text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-[#faeac2] transition-all cursor-pointer shadow-lg shadow-[#D4AF37]/20 active:scale-98 text-center"
               >
                 Explore Collection
               </button>
@@ -64,7 +64,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
               <a
                 href={getTelUrl()}
                 id="hero-call-btn"
-                className="px-8 py-4 border border-[#342A20] text-white text-xs sm:text-sm font-bold uppercase tracking-widest hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all bg-[#161310] flex items-center justify-center space-x-2 shadow-sm"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 border border-[#342A20] text-white text-xs sm:text-sm font-bold uppercase tracking-widest hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all bg-[#161310] flex items-center justify-center space-x-2 shadow-sm"
               >
                 <Phone className="w-3.5 h-3.5 text-[#D4AF37]" />
                 <span>Call {BRAND_PHONE}</span>
@@ -75,7 +75,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="hero-whatsapp-btn"
-                className="px-6 py-4 border border-[#25D366]/50 hover:bg-[#25D366] text-white hover:text-black text-xs sm:text-sm font-bold uppercase tracking-widest transition-all bg-[#161310] flex items-center justify-center space-x-2 shadow-sm"
+                className="w-full sm:w-auto px-5 sm:px-6 py-3.5 sm:py-4 border border-[#25D366]/50 hover:bg-[#25D366] text-white hover:text-black text-xs sm:text-sm font-bold uppercase tracking-widest transition-all bg-[#161310] flex items-center justify-center space-x-2 shadow-sm"
               >
                 <WhatsAppIcon className="w-4 h-4 text-[#25D366] group-hover:text-black transition-colors" />
                 <span>WhatsApp</span>
@@ -83,7 +83,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
             </div>
 
             {/* Trust Line */}
-            <div className="flex items-center space-x-3 text-xs uppercase tracking-widest text-[#948B7D] pt-8 font-medium">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-[#948B7D] pt-6 sm:pt-8 font-medium">
               <span>Authentic</span>
               <span className="text-[#D4AF37]">✦</span>
               <span>Carefully Selected</span>
@@ -94,16 +94,16 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
           </div>
 
           {/* Right Column: Hero Visual Showcase */}
-          <div className="lg:col-span-5 relative flex items-center justify-center overflow-hidden">
+          <div className="lg:col-span-5 relative flex items-center justify-center overflow-hidden pt-4 lg:pt-0">
             <div
               className="absolute inset-0 opacity-30 pointer-events-none"
               style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #D4AF37 0%, transparent 70%)' }}
             />
             
-            <div className="relative z-10 w-full max-w-md bg-[#161310] rounded-2xl sm:rounded-t-[140px] border border-[#2E261D] shadow-2xl p-4 sm:p-6 flex flex-col items-center justify-center group">
+            <div className="relative z-10 w-full max-w-sm sm:max-w-md bg-[#161310] rounded-2xl sm:rounded-t-[140px] border border-[#2E261D] shadow-2xl p-4 sm:p-6 flex flex-col items-center justify-center group">
               
               {/* Arched Stone Visual Card */}
-              <div className="relative w-full h-80 sm:h-96 rounded-xl sm:rounded-t-[120px] overflow-hidden border border-[#3E3326] shadow-[0_10px_40px_rgba(212,175,55,0.22)] bg-gradient-to-b from-[#221C16] to-[#120F0C]">
+              <div className="relative w-full h-72 sm:h-80 md:h-96 rounded-xl sm:rounded-t-[120px] overflow-hidden border border-[#3E3326] shadow-[0_10px_40px_rgba(212,175,55,0.22)] bg-gradient-to-b from-[#221C16] to-[#120F0C]">
                 <img
                   src={heroImg}
                   alt="Authentic Narmadeshwar Shivling with handcrafted Jaladhari"

@@ -17,7 +17,7 @@ export const Testimonials: React.FC = () => {
             </span>
             <div className="h-[1.5px] w-6 bg-[#D4AF37]" />
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
             Devotee Testimonials & Blessings
           </h2>
           <p className="text-sm sm:text-base text-[#B8B0A2]">
@@ -25,12 +25,12 @@ export const Testimonials: React.FC = () => {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Testimonials Grid: Responsive 1 col (mobile), 2 cols (tablet), 3 cols (laptop) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {TESTIMONIALS.map((item) => (
             <div
               key={item.id}
-              className="p-8 bg-[#161310] border border-[#2E261D] hover:border-[#D4AF37]/50 transition-all duration-300 flex flex-col justify-between shadow-xl relative rounded-sm group"
+              className="p-6 sm:p-8 bg-[#161310] border border-[#2E261D] hover:border-[#D4AF37]/50 transition-all duration-300 flex flex-col justify-between shadow-xl relative rounded-sm group"
             >
               <div>
                 {/* Top Strip: Quote Icon + Rating Stars */}

@@ -71,13 +71,13 @@ export const DirectEnquiryModal: React.FC<DirectEnquiryModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-[#070605]/90 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg bg-[#161310] border border-[#2E261D] shadow-2xl p-6 sm:p-8 my-8 text-left rounded-sm">
+    <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-3 sm:p-4 bg-[#070605]/90 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-lg bg-[#161310] border border-[#2E261D] shadow-2xl p-5 sm:p-8 my-auto max-h-[92vh] overflow-y-auto text-left rounded-sm">
         
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-[#261F18] mb-6">
+        <div className="flex items-center justify-between pb-4 border-b border-[#261F18] mb-5 sm:mb-6">
           <div>
-            <h3 className="font-serif text-xl font-bold text-white">
+            <h3 className="font-serif text-lg sm:text-xl font-bold text-white">
               Enquire With Us
             </h3>
             <p className="text-xs text-[#A89E90] mt-0.5">

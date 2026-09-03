@@ -65,15 +65,15 @@ export const Collection: React.FC<CollectionProps> = ({
         </div>
 
         {/* Filter Controls & Search */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-10">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8 sm:mb-10">
           
-          {/* Category Filter Pills */}
-          <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
+          {/* Category Filter Pills with smooth touch-scroll */}
+          <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none touch-pan-x">
             {filterTabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => onSelectCategory(tab.id)}
-                className={`px-4 py-2.5 text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all duration-200 cursor-pointer rounded-sm ${
+                className={`px-3.5 sm:px-4 py-2 sm:py-2.5 text-[11px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all duration-200 cursor-pointer rounded-sm shrink-0 ${
                   selectedCategory === tab.id
                     ? 'bg-[#D4AF37] text-black shadow-md shadow-[#D4AF37]/20 font-bold'
                     : 'bg-[#181512] text-[#B8B0A2] hover:text-white hover:bg-[#241F1A] border border-[#2E261D]'
@@ -85,14 +85,14 @@ export const Collection: React.FC<CollectionProps> = ({
           </div>
 
           {/* Search Bar */}
-          <div className="relative w-full md:w-72">
+          <div className="relative w-full md:w-72 shrink-0">
             <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8A8175]" />
             <input
               type="text"
               placeholder="Search Shivlings..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 text-xs bg-[#161310] border border-[#2E261D] text-[#EBE5DA] placeholder-[#8A8175] focus:outline-none focus:border-[#D4AF37] transition-colors rounded-sm"
+              className="w-full pl-10 pr-4 py-2.5 text-base sm:text-xs bg-[#161310] border border-[#2E261D] text-[#EBE5DA] placeholder-[#8A8175] focus:outline-none focus:border-[#D4AF37] transition-colors rounded-sm"
             />
           </div>
 
@@ -113,7 +113,7 @@ export const Collection: React.FC<CollectionProps> = ({
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
@@ -124,7 +124,7 @@ export const Collection: React.FC<CollectionProps> = ({
                   {/* Product Image Container (Click to view details) */}
                   <div 
                     onClick={() => onOpenProductModal?.(product)}
-                    className="relative h-64 sm:h-72 w-full overflow-hidden bg-[#110E0C] cursor-pointer"
+                    className="relative h-60 sm:h-68 md:h-72 w-full overflow-hidden bg-[#110E0C] cursor-pointer"
                   >
                     <img
                       src={product.images[0]}
@@ -137,7 +137,7 @@ export const Collection: React.FC<CollectionProps> = ({
                     <div className="absolute inset-0 bg-gradient-to-t from-[#161310] via-transparent to-transparent opacity-80" />
 
                     {/* Category Chip */}
-                    <div className="absolute top-3 left-3 px-3 py-1 bg-[#110E0C]/90 backdrop-blur-md text-[10px] font-semibold tracking-widest uppercase text-[#D4AF37] border border-[#D4AF37]/30">
+                    <div className="absolute top-3 left-3 px-2.5 sm:px-3 py-1 bg-[#110E0C]/90 backdrop-blur-md text-[10px] font-semibold tracking-widest uppercase text-[#D4AF37] border border-[#D4AF37]/30">
                       {product.categoryName}
                     </div>
 
@@ -150,10 +150,10 @@ export const Collection: React.FC<CollectionProps> = ({
                   </div>
 
                   {/* Product Details Header */}
-                  <div className="p-6 pb-2 space-y-3">
+                  <div className="p-5 sm:p-6 pb-2 space-y-2.5 sm:space-y-3">
                     <h3 
                       onClick={() => onOpenProductModal?.(product)}
-                      className="font-serif text-lg font-bold text-white group-hover:text-[#D4AF37] transition-colors cursor-pointer"
+                      className="font-serif text-base sm:text-lg font-bold text-white group-hover:text-[#D4AF37] transition-colors cursor-pointer"
                     >
                       {product.name}
                     </h3>
@@ -165,14 +165,14 @@ export const Collection: React.FC<CollectionProps> = ({
                 </div>
 
                 {/* Price & Action Buttons Footer (WhatsApp + Contact ONLY) */}
-                <div className="p-6 pt-4 border-t border-[#261F18] space-y-4">
+                <div className="p-5 sm:p-6 pt-4 border-t border-[#261F18] space-y-4">
                   
                   {/* Prominent Price Display */}
                   <div className="flex items-center justify-between">
                     <div>
                       <span className="text-[10px] text-[#8A8175] uppercase tracking-wider block font-semibold">Direct Artisan Price</span>
                       <div className="flex items-baseline space-x-2">
-                        <span className="text-lg font-bold text-[#D4AF37] tracking-wide font-serif">
+                        <span className="text-base sm:text-lg font-bold text-[#D4AF37] tracking-wide font-serif">
                           {product.priceFormatted}
                         </span>
                         {product.originalPriceFormatted && (
@@ -203,19 +203,19 @@ export const Collection: React.FC<CollectionProps> = ({
                           );
                         }
                       }}
-                      className="w-full py-2.5 px-3 text-xs font-bold uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] transition-all flex items-center justify-center space-x-1.5 shadow-md shadow-[#25D366]/25 active:scale-98 rounded-sm cursor-pointer"
+                      className="w-full py-2.5 px-2 sm:px-3 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] transition-all flex items-center justify-center space-x-1.5 shadow-md shadow-[#25D366]/25 active:scale-98 rounded-sm cursor-pointer min-h-[42px]"
                       title="Generate WhatsApp image & chat directly"
                     >
-                      <WhatsAppIcon className="w-4 h-4" />
+                      <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
                       <span>WhatsApp</span>
                     </button>
 
                     {/* Contact Option */}
                     <a
                       href={getTelUrl()}
-                      className="w-full py-2.5 px-3 text-xs font-bold uppercase tracking-wider text-white bg-[#1F1B16] hover:bg-[#29231D] border border-[#3A3024] hover:border-[#D4AF37]/50 transition-colors flex items-center justify-center space-x-1.5 active:scale-98 rounded-sm"
+                      className="w-full py-2.5 px-2 sm:px-3 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white bg-[#1F1B16] hover:bg-[#29231D] border border-[#3A3024] hover:border-[#D4AF37]/50 transition-colors flex items-center justify-center space-x-1.5 active:scale-98 rounded-sm min-h-[42px]"
                     >
-                      <Phone className="w-3.5 h-3.5 text-[#D4AF37]" />
+                      <Phone className="w-3.5 h-3.5 text-[#D4AF37] flex-shrink-0" />
                       <span>Contact</span>
                     </a>
                   </div>

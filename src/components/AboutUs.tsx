@@ -20,7 +20,7 @@ export const AboutUs: React.FC = () => {
             </span>
             <div className="h-[1.5px] w-6 bg-[#D4AF37]" />
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
             The Story Behind Trilok Shivling Art
           </h2>
           <p className="text-sm sm:text-base text-[#B8B0A2] font-normal leading-relaxed">

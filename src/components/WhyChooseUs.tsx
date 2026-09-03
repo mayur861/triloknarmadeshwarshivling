@@ -64,7 +64,7 @@ export const WhyChooseUs: React.FC = () => {
             </span>
             <div className="h-[1.5px] w-6 bg-[#D4AF37]" />
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
             Why Choose Us
           </h2>
           <p className="text-sm sm:text-base text-[#B8B0A2]">
@@ -72,8 +72,8 @@ export const WhyChooseUs: React.FC = () => {
           </p>
         </div>
 
-        {/* 6 Feature Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* 6 Feature Cards Grid: 1 col on phone, 2 cols on tablet, 3 cols on laptop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {features.map((item, idx) => {
             const Icon = item.icon;
             return (
