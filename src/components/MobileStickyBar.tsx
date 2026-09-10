@@ -40,8 +40,8 @@ export const MobileStickyBar: React.FC = () => {
           }`}
         >
           <Phone className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
-          <span className="hidden min-[380px]:inline">Call {BRAND_PHONE}</span>
-          <span className="min-[380px]:hidden">Call Us</span>
+          <span className="hidden min-[380px]:inline">कॉल: {BRAND_PHONE}</span>
+          <span className="min-[380px]:hidden">कॉल करें</span>
         </a>
 
       </div>

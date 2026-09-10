@@ -1,6 +1,6 @@
 import React from 'react';
 import { TESTIMONIALS } from '../data/testimonials';
-import { Quote, MapPin, Star, UserCheck } from 'lucide-react';
+import { Quote, MapPin, Star } from 'lucide-react';
 
 export const Testimonials: React.FC = () => {
   return (
@@ -12,20 +12,20 @@ export const Testimonials: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
           <div className="inline-flex items-center justify-center gap-3 mb-1">
             <div className="h-[1.5px] w-6 bg-[#D4AF37]" />
-            <span className="text-xs font-semibold tracking-[0.3em] text-[#D4AF37] uppercase">
-              Devotee Experiences
+            <span className="text-xs font-semibold tracking-[0.2em] text-[#D4AF37] uppercase">
+              भक्तों के पावन अनुभव
             </span>
             <div className="h-[1.5px] w-6 bg-[#D4AF37]" />
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-            Devotee Testimonials & Blessings
+            भक्तों के अनुभव एवं आशीर्वाद
           </h2>
           <p className="text-sm sm:text-base text-[#B8B0A2]">
-            Real feedback and devotional experiences from families and temples who have welcomed our sacred Narmadeshwar Shivlings.
+            उन परिवारों एवं शिवभक्तों के विचार जिन्होंने अपने घर के मंदिर में बकावां के स्वयंभू नर्मदेश्वर शिवलिंग की स्थापना की।
           </p>
         </div>
 
-        {/* Testimonials Grid: Responsive 1 col (mobile), 2 cols (tablet), 3 cols (laptop) */}
+        {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {TESTIMONIALS.map((item) => (
             <div
@@ -92,4 +92,3 @@ export const Testimonials: React.FC = () => {
     </section>
   );
 };
-

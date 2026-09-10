@@ -8,7 +8,6 @@ import { ProductDetailModal } from './components/ProductDetailModal';
 import { WhatsAppImageRedirectModal } from './components/WhatsAppImageRedirectModal';
 import { AboutUs } from './components/AboutUs';
 import { WhyChooseUs } from './components/WhyChooseUs';
-import { TrustBanner } from './components/TrustBanner';
 import { Testimonials } from './components/Testimonials';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -71,10 +70,7 @@ function AppContent() {
         {/* 5. Why Choose Us (6 Feature Pillars) */}
         <WhyChooseUs />
 
-        {/* 6. Trust & Devotion Section */}
-        <TrustBanner />
-
-        {/* 7. Devotee Testimonials */}
+        {/* 6. Devotee Testimonials */}
         <Testimonials />
 
         {/* 8. Contact / Enquiry Section */}

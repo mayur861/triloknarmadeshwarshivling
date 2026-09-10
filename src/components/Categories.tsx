@@ -16,21 +16,21 @@ export const Categories: React.FC<CategoriesProps> = ({ onSelectCategory }) => {
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <div className="inline-flex items-center justify-center gap-3 mb-1">
             <div className="h-[1.5px] w-6 bg-[#D4AF37]" />
-            <span className="text-xs font-semibold tracking-[0.3em] text-[#D4AF37] uppercase">
-              Spiritual Curations
+            <span className="text-xs font-semibold tracking-[0.2em] text-[#D4AF37] uppercase">
+              पवित्र श्रेणियां
             </span>
             <div className="h-[1.5px] w-6 bg-[#D4AF37]" />
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-            Explore by Category
+            श्रेणी अनुसार चुनें
           </h2>
           <p className="text-sm sm:text-base text-[#B8B0A2] max-w-2xl mx-auto">
-            Select from sacred naturally formed Banalingams, handcrafted sanctum ensembles, and compact home temple sanctums.
+            प्राकृतिक रूप से निर्मित स्वयंभू नर्मदेश्वर बाणलिंग, घर के मंदिर हेतु सिद्ध जलाधारी सेट और विशेष दुर्लभ स्वरूप।
           </p>
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {CATEGORIES.map((cat) => (
             <div
               key={cat.id}
@@ -55,7 +55,7 @@ export const Categories: React.FC<CategoriesProps> = ({ onSelectCategory }) => {
               {/* Card Content */}
               <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
                 <div>
-                  <span className="text-[10px] font-semibold tracking-[0.2em] text-[#D4AF37] uppercase block">
+                  <span className="text-[11px] font-semibold tracking-[0.15em] text-[#D4AF37] uppercase block">
                     {cat.tagline}
                   </span>
                   <h3 className="font-serif text-lg font-bold text-white group-hover:text-[#D4AF37] transition-colors mt-1">
@@ -66,8 +66,8 @@ export const Categories: React.FC<CategoriesProps> = ({ onSelectCategory }) => {
                   </p>
                 </div>
 
-                <div className="pt-2 text-xs font-bold uppercase tracking-widest text-[#D4AF37] flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
-                  <span>Explore Collection</span>
+                <div className="pt-2 text-xs font-bold uppercase tracking-wider text-[#D4AF37] flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
+                  <span>संग्रह देखें</span>
                   <span>→</span>
                 </div>
               </div>
@@ -79,4 +79,3 @@ export const Categories: React.FC<CategoriesProps> = ({ onSelectCategory }) => {
     </section>
   );
 };
-

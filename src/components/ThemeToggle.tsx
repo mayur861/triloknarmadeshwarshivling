@@ -20,8 +20,8 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '', varian
             ? 'bg-[#F0EBE1] text-[#B8860B] border-[#D8CFBF] hover:bg-[#E8E1D3]'
             : 'bg-[#1A1713] text-[#D4AF37] border-[#2E261D] hover:bg-[#261F19]'
         } ${className}`}
-        title={`Switch to ${theme === 'white' ? 'Dark' : 'White'} background`}
-        aria-label={`Switch to ${theme === 'white' ? 'Dark' : 'White'} background`}
+        title={`${theme === 'white' ? 'डार्क' : 'लाइट'} थीम पर बदलें`}
+        aria-label={`${theme === 'white' ? 'डार्क' : 'लाइट'} थीम पर बदलें`}
       >
         {theme === 'white' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
       </button>
@@ -36,9 +36,9 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '', varian
           : 'bg-[#14110E] border-[#2E261D] shadow-inner'
       } ${className}`}
       role="group"
-      aria-label="Background theme toggle"
+      aria-label="पृष्ठभूमि थीम चुनें"
     >
-      {/* White Button */}
+      {/* Light / White Button */}
       <button
         type="button"
         onClick={() => setTheme('white')}
@@ -50,7 +50,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '', varian
         aria-pressed={theme === 'white'}
       >
         <Sun className={`w-3.5 h-3.5 ${theme === 'white' ? 'text-[#B8860B]' : 'text-current'}`} />
-        <span>White</span>
+        <span>लाइट</span>
       </button>
 
       {/* Dark Button */}
@@ -65,7 +65,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '', varian
         aria-pressed={theme === 'dark'}
       >
         <Moon className={`w-3.5 h-3.5 ${theme === 'dark' ? 'text-[#D4AF37]' : 'text-current'}`} />
-        <span>Dark</span>
+        <span>डार्क</span>
       </button>
     </div>
   );

@@ -23,13 +23,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiryModal }) => {
   }, []);
 
   const navLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'Collection', href: '#collection' },
-    { label: 'Bakawan Location', href: '#village-location' },
-    { label: 'About', href: '#about' },
-    { label: 'Why Us', href: '#why-us' },
-    { label: 'Testimonials', href: '#testimonials' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'मुख्य पृष्ठ', href: '#home' },
+    { label: 'शिवलिंग संग्रह', href: '#collection' },
+    { label: 'बकावां धाम', href: '#village-location' },
+    { label: 'हमारे बारे में', href: '#about' },
+    { label: 'विशेषताएं', href: '#why-us' },
+    { label: 'भक्तों के अनुभव', href: '#testimonials' },
+    { label: 'संपर्क करें', href: '#contact' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -68,29 +68,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiryModal }) => {
             className="group flex items-center space-x-2.5 sm:space-x-3 text-left min-w-0"
             id="navbar-brand-link"
           >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-[#d4af37] via-[#a88220] to-[#1c1813] p-[1.5px] shadow-md shadow-[#d4af37]/20 flex items-center justify-center flex-shrink-0">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-[#d4af37] via-[#a88220] to-[#1c1813] p-[1.5px] shadow-md shadow-[#d4af37]/20 flex items-center justify-center flex-shrink-0">
               <div className={`w-full h-full rounded-full ${theme === 'white' ? 'bg-[#F5EFE6]' : 'bg-[#161310]'} flex items-center justify-center`}>
-                <span className="font-serif text-sm font-bold text-[#d4af37]">ॐ</span>
+                <span className="font-serif text-base sm:text-lg font-bold text-[#d4af37]">ॐ</span>
               </div>
             </div>
             <div className="flex flex-col min-w-0">
-              <span className={`text-sm sm:text-base md:text-lg lg:text-xl font-serif tracking-[0.1em] sm:tracking-[0.18em] text-[#D4AF37] uppercase font-bold truncate ${theme === 'white' ? 'group-hover:text-black' : 'group-hover:text-white'} transition-colors`}>
-                Trilok Shivling Art
+              <span className={`text-base sm:text-lg md:text-xl lg:text-2xl font-serif tracking-[0.04em] sm:tracking-[0.08em] text-[#D4AF37] uppercase font-extrabold truncate ${theme === 'white' ? 'group-hover:text-black' : 'group-hover:text-white'} transition-colors`}>
+                TRILOK NARMADESHWAR SHIVLING ART
               </span>
-              <span className={`text-[8px] sm:text-[9px] md:text-[10px] tracking-[0.2em] sm:tracking-[0.35em] uppercase ${theme === 'white' ? 'text-[#78716C]' : 'text-[#A89E90]'} font-medium truncate`}>
-                Authenticity • Devotion • Purity
+              <span className={`text-[9px] sm:text-[10px] md:text-xs tracking-[0.15em] sm:tracking-[0.2em] uppercase ${theme === 'white' ? 'text-[#78716C]' : 'text-[#A89E90]'} font-semibold truncate`}>
+                प्रामाणिकता • श्रद्धा • पवित्रता (बकावां, म.प्र.)
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links (Laptops & Desktops: 1024px+) */}
-          <nav className="hidden lg:flex items-center space-x-5 xl:space-x-7 text-xs uppercase tracking-widest text-[#C7BFB4]" aria-label="Main Navigation">
+          <nav className={`hidden lg:flex items-center space-x-4 xl:space-x-6 text-xs uppercase tracking-wider ${theme === 'white' ? 'text-[#292524]' : 'text-[#C7BFB4]'}`} aria-label="Main Navigation">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="hover:text-[#D4AF37] transition-colors py-1 font-medium whitespace-nowrap"
+                className={`transition-colors py-1 font-semibold whitespace-nowrap ${
+                  theme === 'white' ? 'text-[#292524] hover:text-[#8F6000]' : 'text-[#C7BFB4] hover:text-[#D4AF37]'
+                }`}
               >
                 {link.label}
               </a>
@@ -107,13 +109,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiryModal }) => {
               id="navbar-phone-btn"
               className={`px-3.5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider ${
                 theme === 'white'
-                  ? 'text-[#44403C] hover:text-black bg-[#F5F2EB] hover:bg-[#EFEAE0] border border-[#DDD5C7]'
-                  : 'text-[#C7BFB4] hover:text-white bg-[#1A1713] hover:bg-[#231F19] border border-[#2E261D]'
+                   ? 'text-[#44403C] hover:text-black bg-[#F5F2EB] hover:bg-[#EFEAE0] border border-[#DDD5C7]'
+                   : 'text-[#C7BFB4] hover:text-white bg-[#1A1713] hover:bg-[#231F19] border border-[#2E261D]'
               } hover:border-[#D4AF37]/50 transition-all flex items-center space-x-1.5`}
               title={`Call ${BRAND_PHONE}`}
             >
               <Phone className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>{BRAND_PHONE}</span>
+              <span>कॉल: {BRAND_PHONE}</span>
             </a>
 
             {/* WhatsApp CTA */}
@@ -125,7 +127,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiryModal }) => {
               className="bg-[#25D366] text-white px-4.5 py-2 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-[#20ba59] transition-all duration-200 shadow-md shadow-[#25D366]/20 flex items-center space-x-2 active:scale-95"
             >
               <WhatsAppIcon className="w-4 h-4" />
-              <span>WhatsApp Us</span>
+              <span>WhatsApp</span>
             </a>
           </div>
 
@@ -211,7 +213,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiryModal }) => {
             {/* Background Mode Toggle in Drawer */}
             <div className={`flex items-center justify-between pb-3.5 border-b ${theme === 'white' ? 'border-[#EBE5DA]' : 'border-[#201A14]'}`}>
               <span className={`text-xs font-bold uppercase tracking-wider ${theme === 'white' ? 'text-[#57534E]' : 'text-[#A89E90]'}`}>
-                Background Theme
+                पृष्ठभूमि स्वरूप (थीम)
               </span>
               <ThemeToggle />
             </div>
@@ -221,7 +223,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiryModal }) => {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`text-xs font-semibold uppercase tracking-widest ${theme === 'white' ? 'text-[#44403C] hover:text-[#B8860B] border-b border-[#F0EBE1]' : 'text-[#C7BFB4] hover:text-[#D4AF37] border-b border-[#201A14]'} py-2.5 transition-colors flex items-center justify-between`}
+                className={`text-xs font-semibold uppercase tracking-wider ${theme === 'white' ? 'text-[#44403C] hover:text-[#B8860B] border-b border-[#F0EBE1]' : 'text-[#C7BFB4] hover:text-[#D4AF37] border-b border-[#201A14]'} py-2.5 transition-colors flex items-center justify-between`}
               >
                 <span>{link.label}</span>
                 <span className="text-xs text-[#D4AF37]/60">✦</span>
@@ -236,15 +238,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiryModal }) => {
                 className="w-full py-3 px-4 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] transition-colors text-center flex items-center justify-center space-x-2 shadow-md shadow-[#25D366]/20"
               >
                 <WhatsAppIcon className="w-4 h-4" />
-                <span>WhatsApp Us</span>
+                <span>WhatsApp पर संपर्क करें</span>
               </a>
 
               <a
                 href={getTelUrl()}
-                className="w-full py-3 px-4 rounded-full text-xs font-semibold uppercase tracking-wider text-[#C7BFB4] hover:text-white bg-[#1A1713] border border-[#2E261D] flex items-center justify-center space-x-2"
+                className={`w-full py-3 px-4 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2 transition-colors ${
+                  theme === 'white'
+                    ? 'text-[#1C1917] bg-[#F2ECE1] hover:bg-[#EAE2D5] border border-[#DDD5C7]'
+                    : 'text-[#C7BFB4] hover:text-white bg-[#1A1713] border border-[#2E261D]'
+                }`}
               >
                 <Phone className="w-4 h-4 text-[#D4AF37]" />
-                <span>Call {BRAND_PHONE}</span>
+                <span>कॉल करें {BRAND_PHONE}</span>
               </a>
 
               <button
@@ -252,9 +258,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiryModal }) => {
                   setMobileMenuOpen(false);
                   onOpenEnquiryModal();
                 }}
-                className="w-full py-2 px-4 text-xs uppercase tracking-widest text-[#A89E90] hover:text-[#D4AF37] text-center"
+                className={`w-full py-2 px-4 text-xs font-semibold uppercase tracking-wider text-center transition-colors ${
+                  theme === 'white'
+                    ? 'text-[#44403C] hover:text-[#8F6000]'
+                    : 'text-[#A89E90] hover:text-[#D4AF37]'
+                }`}
               >
-                Send Written Enquiry Online →
+                ऑनलाइन पूछताछ फॉर्म भेजें →
               </button>
             </div>
           </nav>

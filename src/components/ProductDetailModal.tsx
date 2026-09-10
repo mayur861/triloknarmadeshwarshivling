@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Product } from '../types';
 import { getProductWhatsAppUrl, getTelUrl, BRAND_PHONE } from '../utils/whatsapp';
-import { X, Phone, Mail, Sparkles, ShieldCheck, Droplets, Info, Check } from 'lucide-react';
+import { X, Phone, Mail, Sparkles, ShieldCheck, Droplets } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
+import { useTheme } from '../context/ThemeContext';
 
 interface ProductDetailModalProps {
   product: Product | null;
@@ -17,6 +18,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   onOpenEnquiryModal,
   onOpenWhatsAppRedirect,
 }) => {
+  const { theme } = useTheme();
   if (!product) return null;
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -36,7 +38,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#D4AF37] bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-sm">
               {product.categoryName}
             </span>
-            <span className="text-xs text-[#8A8175]">REF: {product.id}</span>
+            <span className="text-xs text-[#8A8175]">आईडी: {product.id}</span>
           </div>
           <button
             onClick={onClose}
@@ -63,7 +65,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute bottom-3 left-3 px-3 py-1 bg-[#0C0A09]/90 border border-[#D4AF37]/40 text-[10px] uppercase font-bold tracking-wider text-[#D4AF37] rounded-sm">
-                  {product.priceFormatted} • Sacred Natural Narmada Stone
+                  {product.priceFormatted} • पवित्र स्वयंभू नर्मदा पाषाण
                 </div>
               </div>
 
@@ -82,7 +84,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     >
                       <img
                         src={imgUrl}
-                        alt={`${product.name} preview ${idx + 1}`}
+                        alt={`${product.name} छवि ${idx + 1}`}
                         className="w-full h-full object-cover"
                         referrerPolicy="no-referrer"
                       />
@@ -95,10 +97,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               <div className="p-4 bg-[#110E0C] border border-[#2E261D] text-xs text-[#A89E90] space-y-1.5 rounded-sm">
                 <div className="flex items-center space-x-1.5 text-[#D4AF37] font-semibold text-xs uppercase tracking-wider">
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>Natural Stone Variation</span>
+                  <span>प्राकृतिक स्वयंभू पाषाण</span>
                 </div>
                 <p className="leading-relaxed text-[#C7BFB4]">
-                  As each Narmadeshwar Shivling is sculpted by natural river water currents over decades, individual colors and mineral lines vary uniquely.
+                  प्रत्येक नर्मदेश्वर शिवलिंग माँ नर्मदा के जल प्रवाह में स्वतः बनता है, अतः प्राकृतिक तिलक, रंग और खनिज रेखाओं की विशिष्टता अद्वितीय होती है।
                 </p>
               </div>
 
@@ -111,16 +113,16 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                   {product.name}
                 </h2>
-                <p className="text-xs text-[#D4AF37] font-semibold uppercase tracking-widest mt-1">
-                  Origin: {product.origin}
+                <p className="text-xs text-[#D4AF37] font-semibold uppercase tracking-wider mt-1">
+                  उद्गम: {product.origin}
                 </p>
               </div>
 
               {/* Price Banner */}
               <div className="p-4 bg-[#110E0C] border border-[#2E261D] flex items-center justify-between rounded-sm">
                 <div>
-                  <span className="text-[10px] text-[#8A8175] uppercase tracking-widest block font-semibold">
-                    Direct Artisan Price
+                  <span className="text-[10px] text-[#8A8175] uppercase tracking-wider block font-semibold">
+                    सीधी कारीगर दर
                   </span>
                   <div className="flex items-baseline space-x-2.5">
                     <span className="text-2xl font-serif font-bold text-[#D4AF37]">
@@ -142,8 +144,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
               {/* Full Description */}
               <div>
-                <h3 className="text-xs uppercase tracking-widest font-bold text-[#8A8175] mb-2">
-                  About This Sacred Piece
+                <h3 className="text-xs uppercase tracking-wider font-bold text-[#8A8175] mb-2">
+                  इस दिव्य स्वरूप के बारे में
                 </h3>
                 <p className="text-xs sm:text-sm text-[#EBE5DA] leading-relaxed">
                   {product.fullDesc}
@@ -153,34 +155,34 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               {/* Specifications Table */}
               <div className="border border-[#2E261D] overflow-hidden text-xs rounded-sm">
                 <div className="bg-[#1C1712] px-4 py-2 font-bold uppercase tracking-wider text-[#D4AF37] border-b border-[#2E261D]">
-                  Product Details
+                  विवरण एवं विशेषताएं
                 </div>
                 <div className="divide-y divide-[#261F18] bg-[#110E0C]">
                   <div className="px-4 py-2.5 grid grid-cols-3">
-                    <span className="text-[#8A8175]">Material:</span>
+                    <span className="text-[#8A8175]">सामग्री / पाषाण:</span>
                     <span className="col-span-2 text-[#EBE5DA] font-medium">{product.material}</span>
                   </div>
                   {product.naturalMarkings && (
                     <div className="px-4 py-2.5 grid grid-cols-3">
-                      <span className="text-[#8A8175]">Natural Markings:</span>
+                      <span className="text-[#8A8175]">प्राकृतिक रेखाएं:</span>
                       <span className="col-span-2 text-[#EBE5DA] font-medium">{product.naturalMarkings}</span>
                     </div>
                   )}
                   {product.recommendedFor && (
                     <div className="px-4 py-2.5 grid grid-cols-3">
-                      <span className="text-[#8A8175]">Best Suited For:</span>
+                      <span className="text-[#8A8175]">स्थापना हेतु उपयुक्त:</span>
                       <span className="col-span-2 text-[#EBE5DA] font-medium">{product.recommendedFor}</span>
                     </div>
                   )}
                 </div>
               </div>
 
-              {/* Spiritual Significance & Care Info Accordion */}
+              {/* Spiritual Significance & Care Info */}
               <div className="space-y-3">
                 <div className="p-3.5 bg-[#110E0C] border border-[#2E261D] space-y-1 rounded-sm">
                   <div className="flex items-center space-x-1.5 text-xs font-bold uppercase tracking-wider text-[#D4AF37]">
                     <Droplets className="w-3.5 h-3.5" />
-                    <span>Spiritual Significance</span>
+                    <span>आध्यात्मिक महत्व एवं फल</span>
                   </div>
                   <p className="text-xs text-[#C7BFB4] leading-relaxed">
                     {product.spiritualSignificance}
@@ -190,7 +192,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 <div className="p-3.5 bg-[#110E0C] border border-[#2E261D] space-y-1 rounded-sm">
                   <div className="flex items-center space-x-1.5 text-xs font-bold uppercase tracking-wider text-[#D4AF37]">
                     <ShieldCheck className="w-3.5 h-3.5" />
-                    <span>Care & Cleaning Guide</span>
+                    <span>देखभाल एवं अभिषेक विधि</span>
                   </div>
                   <p className="text-xs text-[#C7BFB4] leading-relaxed">
                     {product.careInfo}
@@ -207,11 +209,11 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         <div className="px-4 sm:px-6 py-3.5 sm:py-4 bg-[#110E0C] border-t border-[#261F18] flex flex-col sm:flex-row items-center justify-between gap-3">
           
           <div className="text-xs text-[#A89E90] text-center sm:text-left">
-            Contact Trilok Shivling Art directly for high-res photos, packaging & safe doorstep delivery across India.
+            लाइव फोटो, वीडियो, पैकिंग और पूरे भारत में सुरक्षित डिलीवरी के लिए सीधे संपर्क करें।
           </div>
 
           <div className="grid grid-cols-2 sm:flex items-center gap-2 sm:gap-2.5 w-full sm:w-auto">
-            {/* WhatsApp Enquiry Button - Full width on phone, natural width on tablet/laptop */}
+            {/* WhatsApp Enquiry Button */}
             <button
               type="button"
               onClick={() => {
@@ -232,17 +234,21 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               className="col-span-2 sm:col-auto px-4 sm:px-5 py-3 font-bold text-xs uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] transition-all flex items-center justify-center space-x-2 shadow-md shadow-[#25D366]/25 rounded-sm cursor-pointer min-h-[42px]"
             >
               <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
-              <span>WhatsApp Enquiry</span>
+              <span>WhatsApp पूछताछ</span>
             </button>
 
             {/* Direct Call Button */}
             <a
               href={getTelUrl()}
-              className="col-span-1 sm:col-auto px-3 sm:px-4 py-3 font-bold text-xs uppercase tracking-wider text-white bg-[#1C1712] hover:bg-[#261F18] border border-[#3A3024] transition-colors flex items-center justify-center space-x-1.5 rounded-sm min-h-[42px]"
+              className={`col-span-1 sm:col-auto px-3 sm:px-4 py-3 font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center space-x-1.5 rounded-sm min-h-[42px] ${
+                theme === 'white'
+                  ? 'text-[#1C1917] bg-[#F2ECE1] hover:bg-[#EAE2D5] border border-[#DDD5C7]'
+                  : 'text-white bg-[#1C1712] hover:bg-[#261F18] border border-[#3A3024]'
+              }`}
               title={`Call ${BRAND_PHONE}`}
             >
               <Phone className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
-              <span>Call Us</span>
+              <span>कॉल करें</span>
             </a>
 
             {/* Send Enquiry by Email */}
@@ -251,10 +257,14 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 onClose();
                 onOpenEnquiryModal(product.name);
               }}
-              className="col-span-1 sm:col-auto px-3 sm:px-4 py-3 font-bold text-xs uppercase tracking-wider text-white bg-[#1C1712] hover:bg-[#261F18] border border-[#3A3024] transition-colors flex items-center justify-center space-x-1.5 cursor-pointer rounded-sm min-h-[42px]"
+              className={`col-span-1 sm:col-auto px-3 sm:px-4 py-3 font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center space-x-1.5 cursor-pointer rounded-sm min-h-[42px] ${
+                theme === 'white'
+                  ? 'text-[#1C1917] bg-[#F2ECE1] hover:bg-[#EAE2D5] border border-[#DDD5C7]'
+                  : 'text-white bg-[#1C1712] hover:bg-[#261F18] border border-[#3A3024]'
+              }`}
             >
               <Mail className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
-              <span>Email Form</span>
+              <span>फॉर्म भरें</span>
             </button>
           </div>
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { EnquiryFormData } from '../types';
-import { getWhatsAppUrl, BRAND_PHONE } from '../utils/whatsapp';
+import { getWhatsAppUrl } from '../utils/whatsapp';
 import { WhatsAppIcon } from './WhatsAppIcon';
 
 interface DirectEnquiryModalProps {
@@ -20,7 +20,7 @@ export const DirectEnquiryModal: React.FC<DirectEnquiryModalProps> = ({
     phone: '',
     email: '',
     city: '',
-    productInterest: defaultProduct || 'General Shivling Enquiry',
+    productInterest: defaultProduct || 'नर्मदेश्वर शिवलिंग पूछताछ',
     message: '',
     honeypot: '',
   });
@@ -58,15 +58,15 @@ export const DirectEnquiryModal: React.FC<DirectEnquiryModalProps> = ({
 
       if (response.ok && data.success) {
         setStatus('success');
-        setSuccessMessage(data.message || 'Thank you! Your enquiry has been received. We will contact you shortly.');
+        setSuccessMessage(data.message || 'धन्यवाद! आपकी पूछताछ प्राप्त हो गई है। हम शीघ्र ही आपसे संपर्क करेंगे।');
       } else {
         setStatus('error');
-        setErrorMessage(data.error || 'Unable to submit enquiry. Please message us on WhatsApp.');
+        setErrorMessage(data.error || 'पूछताछ भेजने में समस्या आई। कृपया WhatsApp पर संपर्क करें।');
       }
     } catch (err) {
       console.error(err);
       setStatus('error');
-      setErrorMessage('Network error. Please reach out to 6263540349 directly on WhatsApp.');
+      setErrorMessage('त्रुटि हुई। कृपया सीधे 9575501337 पर WhatsApp करें।');
     }
   };
 
@@ -78,10 +78,10 @@ export const DirectEnquiryModal: React.FC<DirectEnquiryModalProps> = ({
         <div className="flex items-center justify-between pb-4 border-b border-[#261F18] mb-5 sm:mb-6">
           <div>
             <h3 className="font-serif text-lg sm:text-xl font-bold text-white">
-              Enquire With Us
+              पूछताछ एवं मार्गदर्शन
             </h3>
             <p className="text-xs text-[#A89E90] mt-0.5">
-              Trilok Shivling Art • Direct Consultation
+              त्रिलोक शिवलिंग आर्ट • बकावां (मध्य प्रदेश)
             </p>
           </div>
           <button
@@ -98,7 +98,7 @@ export const DirectEnquiryModal: React.FC<DirectEnquiryModalProps> = ({
           <div className="py-6 text-center space-y-4">
             <CheckCircle2 className="w-12 h-12 text-[#25D366] mx-auto" />
             <h4 className="font-serif text-lg font-bold text-[#EBE5DA]">
-              Enquiry Submitted
+              पूछताछ सफलतापूर्वक भेजी गई
             </h4>
             <p className="text-xs text-[#C7BFB4] leading-relaxed">
               {successMessage}
@@ -106,18 +106,18 @@ export const DirectEnquiryModal: React.FC<DirectEnquiryModalProps> = ({
             <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
               <button
                 onClick={onClose}
-                className="px-5 py-2.5 bg-[#201A14] border border-[#3A3024] text-white text-xs font-bold uppercase tracking-wider cursor-pointer hover:bg-[#2E261D]"
+                className="px-5 py-2.5 bg-[#201A14] border border-[#3A3024] text-white text-xs font-bold uppercase tracking-wider cursor-pointer hover:bg-[#2E261D] rounded-sm"
               >
-                Close Window
+                विंडो बंद करें
               </button>
               <a
-                href={getWhatsAppUrl(`Hello Trilok Shivling Art, I just submitted an enquiry for ${formData.productInterest}`)}
+                href={getWhatsAppUrl(`नमस्कार त्रिलोक शिवलिंग आर्ट, मैंने अभी ${formData.productInterest} के लिए वेबसाइट पर पूछताछ भेजी है। कृपया जानकारी दें।`)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md shadow-[#25D366]/20"
+                className="px-5 py-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md shadow-[#25D366]/20 rounded-sm"
               >
                 <WhatsAppIcon className="w-4 h-4" />
-                <span>Chat on WhatsApp</span>
+                <span>WhatsApp पर चैट करें</span>
               </a>
             </div>
           </div>
@@ -143,13 +143,13 @@ export const DirectEnquiryModal: React.FC<DirectEnquiryModalProps> = ({
 
             <div>
               <label className="text-xs font-semibold text-[#C7BFB4] block mb-1">
-                Your Full Name <span className="text-[#D4AF37]">*</span>
+                आपका पूरा नाम <span className="text-[#D4AF37]">*</span>
               </label>
               <input
                 type="text"
                 name="name"
                 required
-                placeholder="Full Name"
+                placeholder="पूरा नाम दर्ज करें"
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-[#0C0A09] border border-[#2E261D] text-[#EBE5DA] placeholder-[#7A7165] focus:outline-none focus:border-[#D4AF37] rounded-sm"
@@ -159,7 +159,7 @@ export const DirectEnquiryModal: React.FC<DirectEnquiryModalProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="text-xs font-semibold text-[#C7BFB4] block mb-1">
-                  Mobile Number <span className="text-[#D4AF37]">*</span>
+                  मोबाइल नंबर <span className="text-[#D4AF37]">*</span>
                 </label>
                 <input
                   type="tel"
@@ -174,7 +174,7 @@ export const DirectEnquiryModal: React.FC<DirectEnquiryModalProps> = ({
 
               <div>
                 <label className="text-xs font-semibold text-[#C7BFB4] block mb-1">
-                  Email Address <span className="text-[#D4AF37]">*</span>
+                  ईमेल आईडी <span className="text-[#D4AF37]">*</span>
                 </label>
                 <input
                   type="email"
@@ -190,7 +190,7 @@ export const DirectEnquiryModal: React.FC<DirectEnquiryModalProps> = ({
 
             <div>
               <label className="text-xs font-semibold text-[#C7BFB4] block mb-1">
-                Product or Requirement
+                इच्छुक उत्पाद या माप
               </label>
               <input
                 type="text"
@@ -203,12 +203,12 @@ export const DirectEnquiryModal: React.FC<DirectEnquiryModalProps> = ({
 
             <div>
               <label className="text-xs font-semibold text-[#C7BFB4] block mb-1">
-                Your Message / Inquiry Details
+                संदेश या प्रश्न
               </label>
               <textarea
                 name="message"
                 rows={3}
-                placeholder="Let us know about your mandir requirements, natural tilak preferences, or delivery location..."
+                placeholder="मंदिर के स्थान, पसंदीदा प्राकृतिक तिलक या डिलीवरी शहर के बारे में लिखें..."
                 value={formData.message}
                 onChange={handleChange}
                 className="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-[#0C0A09] border border-[#2E261D] text-[#EBE5DA] placeholder-[#7A7165] focus:outline-none focus:border-[#D4AF37] resize-none rounded-sm"
@@ -218,17 +218,17 @@ export const DirectEnquiryModal: React.FC<DirectEnquiryModalProps> = ({
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="w-full py-3.5 font-bold text-xs uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-[#faeac2] transition-all flex items-center justify-center space-x-2 cursor-pointer disabled:opacity-50 shadow-md shadow-[#D4AF37]/20 rounded-sm"
+              className="w-full py-3.5 font-bold text-xs uppercase tracking-wider text-black bg-[#D4AF37] hover:bg-[#faeac2] transition-all flex items-center justify-center space-x-2 cursor-pointer disabled:opacity-50 shadow-md shadow-[#D4AF37]/20 rounded-sm"
             >
               {status === 'loading' ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin text-black" />
-                  <span>Submitting...</span>
+                  <span>भेजा जा रहा है...</span>
                 </>
               ) : (
                 <>
                   <Send className="w-4 h-4 text-black" />
-                  <span>Send Enquiry</span>
+                  <span>पूछताछ भेजें</span>
                 </>
               )}
             </button>

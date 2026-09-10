@@ -13,38 +13,38 @@ export const WhyChooseUs: React.FC = () => {
     {
       icon: Sparkles,
       num: '01',
-      title: 'Carefully Selected',
-      description: 'Every piece is presented with attention to its natural beauty and uniqueness.',
+      title: '100% प्राकृतिक एवं स्वयंभू',
+      description: 'प्रत्येक शिवलिंग माँ नर्मदा के पावन प्रवाह से स्वतः आकार लेता है, जिसमें कोई कृत्रिम मिलावट नहीं होती।',
     },
     {
       icon: UserCheck,
       num: '02',
-      title: 'Personal Assistance',
-      description: 'Get direct guidance from our team before making your selection.',
+      title: 'व्यक्तिगत मार्गदर्शन',
+      description: 'घर के मंदिर के माप व स्थान के अनुसार सही आकार व प्रकार के चयन हेतु सीधी सलाह।',
     },
     {
       icon: MessageCircle,
       num: '03',
-      title: 'WhatsApp Support',
-      description: 'Connect with us directly and conveniently with direct photo preview.',
+      title: 'WhatsApp पर तुरंत फोटो व वीडियो',
+      description: 'ऑर्डर करने से पूर्व वास्तविक शिवलिंग के लाइव फोटो व वीडियो WhatsApp पर देखकर संतुष्ट हों।',
     },
     {
       icon: Globe2,
       num: '04',
-      title: 'Pan-India Enquiries',
-      description: 'Customers from across India can contact us with nationwide dispatch.',
+      title: 'संपूर्ण भारत में आपूर्ति',
+      description: 'भारत के किसी भी राज्य, नगर या गांव में सुरक्षित कूरियर व ट्रांसपोर्ट द्वारा होम डिलीवरी।',
     },
     {
       icon: Box,
       num: '05',
-      title: 'Premium Presentation',
-      description: 'Every Shivling is showcased with attention to detail and safe velvet packaging.',
+      title: 'मजबूत सुरक्षा पैकिंग',
+      description: 'लकड़ी के फ्रेम, थर्माकोल एवं बबल रैप में पूर्ण सुरक्षा के साथ पैकिंग, ताकि कोई टूट-फूट न हो।',
     },
     {
       icon: HeartHandshake,
       num: '06',
-      title: 'Devotion & Trust',
-      description: 'Our focus is on a transparent, honest, and respectful customer experience.',
+      title: 'श्रद्धा, शुचिता एवं विश्वास',
+      description: 'बकावां के स्थानीय शिल्पकारों का सीधा सहयोग, उचित दर एवं पूर्ण पारदर्शिता।',
     },
   ];
 
@@ -59,20 +59,20 @@ export const WhyChooseUs: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
           <div className="inline-flex items-center justify-center gap-3 mb-1">
             <div className="h-[1.5px] w-6 bg-[#D4AF37]" />
-            <span className="text-xs font-semibold tracking-[0.3em] text-[#D4AF37] uppercase">
-              The Trilok Difference
+            <span className="text-xs font-semibold tracking-[0.2em] text-[#D4AF37] uppercase">
+              हमारी विशेषताएं
             </span>
             <div className="h-[1.5px] w-6 bg-[#D4AF37]" />
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-            Why Choose Us
+            हमें क्यों चुनें?
           </h2>
           <p className="text-sm sm:text-base text-[#B8B0A2]">
-            Dedicated to authentic presentation, personalized consultation, and revered service.
+            प्रामाणिक नर्मदा पाषाण, कारीगरों का सीधा सहयोग और हर भक्त के प्रति समर्पित सेवा।
           </p>
         </div>
 
-        {/* 6 Feature Cards Grid: 1 col on phone, 2 cols on tablet, 3 cols on laptop */}
+        {/* 6 Feature Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {features.map((item, idx) => {
             const Icon = item.icon;

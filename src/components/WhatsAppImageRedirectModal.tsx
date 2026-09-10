@@ -56,11 +56,11 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
       ctx.fillStyle = '#D4AF37';
       ctx.font = 'bold 22px serif';
       ctx.textAlign = 'center';
-      ctx.fillText('ॐ  TRILOK SHIVLING ART  ॐ', canvas.width / 2, 70);
+      ctx.fillText('ॐ  त्रिलोक शिवलिंग आर्ट  ॐ', canvas.width / 2, 70);
 
       ctx.fillStyle = '#A89E90';
       ctx.font = '13px sans-serif';
-      ctx.fillText('BAKAWAN, MADHYA PRADESH • SACRED BANALINGAM COLLECTION', canvas.width / 2, 95);
+      ctx.fillText('ग्राम बकावां, मध्य प्रदेश • पवित्र स्वयंभू नर्मदेश्वर बाणलिंगम', canvas.width / 2, 95);
 
       // Decorative divider
       ctx.strokeStyle = '#D4AF37';
@@ -103,12 +103,12 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
       ctx.fillStyle = '#D4AF37';
       ctx.font = 'bold 12px sans-serif';
       ctx.textAlign = 'left';
-      ctx.fillText('✓ AUTHENTIC RIVER NARMADA STONE', imgX + 25, imgY + imgH - 26);
+      ctx.fillText('✓ 100% प्राकृतिक नर्मदा पाषाण', imgX + 25, imgY + imgH - 26);
 
       // 5. Product Information Section
       const infoY = 680;
       ctx.fillStyle = '#FFFFFF';
-      ctx.font = 'bold 28px serif';
+      ctx.font = 'bold 26px serif';
       ctx.textAlign = 'left';
       ctx.fillText(product.name, 60, infoY);
 
@@ -122,14 +122,14 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
       ctx.fillStyle = '#A89E90';
       ctx.font = '15px sans-serif';
       ctx.textAlign = 'left';
-      ctx.fillText(`${product.categoryName} • Origin: ${product.origin}`, 60, infoY + 32);
+      ctx.fillText(`${product.categoryName} • उद्गम: ${product.origin}`, 60, infoY + 32);
 
       // Natural markings / Material
       ctx.fillStyle = '#EBE5DA';
       ctx.font = '14px sans-serif';
       const markText = product.naturalMarkings 
-        ? `Natural Markings: ${product.naturalMarkings}` 
-        : `Material: ${product.material}`;
+        ? `प्राकृतिक रेखाएं: ${product.naturalMarkings}` 
+        : `सामग्री: ${product.material}`;
       ctx.fillText(markText, 60, infoY + 62);
 
       // Divider line
@@ -150,7 +150,7 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
       ctx.fillStyle = '#25D366';
       ctx.font = 'bold 16px sans-serif';
       ctx.textAlign = 'left';
-      ctx.fillText('DIRECT WHATSAPP ENQUIRY', 85, infoY + 140);
+      ctx.fillText('सीधा WhatsApp संपर्क', 85, infoY + 140);
 
       ctx.fillStyle = '#FFFFFF';
       ctx.font = 'bold 22px sans-serif';
@@ -159,14 +159,14 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
       ctx.fillStyle = '#A89E90';
       ctx.font = '12px sans-serif';
       ctx.textAlign = 'right';
-      ctx.fillText('Share this image directly on WhatsApp', canvas.width - 85, infoY + 145);
-      ctx.fillText('for instant photo & size confirmation', canvas.width - 85, infoY + 168);
+      ctx.fillText('यह फोटो कार्ड WhatsApp पर साझा करें', canvas.width - 85, infoY + 145);
+      ctx.fillText('लाइव फोटो व माप पुष्टि तुरंत प्राप्त करें', canvas.width - 85, infoY + 168);
 
       // Bottom reference note
       ctx.fillStyle = '#7A7165';
       ctx.font = '11px sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText(`Product ID: ${product.id} • Verified Sacred Narmada Banalingam`, canvas.width / 2, canvas.height - 35);
+      ctx.fillText(`उत्पाद आईडी: ${product.id} • प्रमाणित स्वयंभू नर्मदेश्वर बाणलिंग`, canvas.width / 2, canvas.height - 35);
 
       const dataUrl = canvas.toDataURL('image/png');
       setGeneratedImageUrl(dataUrl);
@@ -201,7 +201,7 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
   };
 
   const handleCopyText = () => {
-    const text = `Namaste Trilok Shivling Art 🙏 I am interested in ${product.name} (${product.priceFormatted}). Please share high-res photos and dispatch details.`;
+    const text = `नमस्कार त्रिलोक शिवलिंग आर्ट 🙏 मुझे ${product.name} (${product.priceFormatted}) के विषय में जानकारी चाहिए। कृपया वास्तविक फोटो एवं डिलीवरी विवरण साझा करें।`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -221,10 +221,10 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
             </div>
             <div>
               <h3 className="font-serif text-sm sm:text-base md:text-lg font-bold text-white">
-                WhatsApp Enquiry Card
+                WhatsApp पूछताछ कार्ड
               </h3>
               <p className="text-[10px] sm:text-[11px] text-[#A89E90]">
-                Generated product card with reference photo & details
+                तस्वीर एवं मूल्य विवरण के साथ स्वचालित तैयार कार्ड
               </p>
             </div>
           </div>
@@ -245,7 +245,7 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
             <div className="flex items-center space-x-2">
               <Sparkles className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
               <span className="text-[11px] sm:text-xs">
-                Enquiry image generated! You can open WhatsApp directly or save the card to share in chat.
+                पूछताछ कार्ड तैयार है! आप सीधे WhatsApp पर जा सकते हैं या कार्ड डाउनलोड कर चैट में भेज सकते हैं।
               </span>
             </div>
           </div>
@@ -256,20 +256,20 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
               <div className="flex flex-col items-center justify-center py-12 space-y-3 text-[#D4AF37]">
                 <Loader2 className="w-8 h-8 animate-spin" />
                 <span className="text-xs tracking-wider uppercase font-semibold text-[#A89E90]">
-                  Generating sacred product enquiry image...
+                  पूछताछ कार्ड तैयार किया जा रहा है...
                 </span>
               </div>
             ) : generatedImageUrl ? (
               <div className="max-w-md w-full shadow-2xl border border-[#3A3024] rounded-sm overflow-hidden">
                 <img
                   src={generatedImageUrl}
-                  alt={`Enquiry Card for ${product.name}`}
+                  alt={`${product.name} पूछताछ कार्ड`}
                   className="w-full h-auto object-contain block"
                   referrerPolicy="no-referrer"
                 />
               </div>
             ) : (
-              <div className="text-xs text-[#A89E90]">Image generation completed.</div>
+              <div className="text-xs text-[#A89E90]">छवि तैयार हो चुकी है।</div>
             )}
           </div>
 
@@ -280,7 +280,7 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
                 {product.name}
               </span>
               <span className="text-[10px] sm:text-xs text-[#A89E90]">
-                {product.categoryName} • Ref: {product.id}
+                {product.categoryName} • आईडी: {product.id}
               </span>
             </div>
             <div className="text-right">
@@ -288,7 +288,7 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
                 {product.priceFormatted}
               </span>
               <span className="text-[10px] text-[#25D366] font-semibold">
-                Direct WhatsApp Support
+                सीधा WhatsApp सहयोग
               </span>
             </div>
           </div>
@@ -304,20 +304,20 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
               onClick={handleDownload}
               disabled={isGenerating || !generatedImageUrl}
               className="flex-1 sm:flex-initial px-3.5 sm:px-4 py-2.5 sm:py-3 text-xs font-bold uppercase tracking-wider text-white bg-[#201A14] hover:bg-[#2E261D] border border-[#3A3024] transition-all flex items-center justify-center space-x-1.5 sm:space-x-2 cursor-pointer disabled:opacity-50 rounded-sm min-h-[42px]"
-              title="Save enquiry image to your device"
+              title="कार्ड अपने फोन/कंप्यूटर में सुरक्षित करें"
             >
               <Download className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
-              <span>Save Card</span>
+              <span>कार्ड सेव करें</span>
             </button>
 
             {/* Copy Text Button */}
             <button
               onClick={handleCopyText}
               className="px-3.5 py-2.5 sm:py-3 text-xs font-bold uppercase tracking-wider text-[#A89E90] hover:text-white bg-[#201A14] hover:bg-[#2E261D] border border-[#3A3024] transition-all flex items-center justify-center space-x-1.5 cursor-pointer rounded-sm min-h-[42px]"
-              title="Copy message text"
+              title="संदेश कॉपी करें"
             >
               {copied ? <Check className="w-4 h-4 text-[#25D366] flex-shrink-0" /> : <Copy className="w-4 h-4 flex-shrink-0" />}
-              <span>{copied ? 'Copied' : 'Copy'}</span>
+              <span>{copied ? 'कॉपी हो गया' : 'कॉपी करें'}</span>
             </button>
           </div>
 
@@ -327,10 +327,10 @@ export const WhatsAppImageRedirectModal: React.FC<WhatsAppImageRedirectModalProp
             target="_blank"
             rel="noopener noreferrer"
             onClick={onClose}
-            className="w-full sm:w-auto px-5 sm:px-6 py-3 text-xs font-bold uppercase tracking-widest text-white bg-[#25D366] hover:bg-[#20ba59] transition-all flex items-center justify-center space-x-2 shadow-lg shadow-[#25D366]/25 rounded-sm active:scale-98 min-h-[42px]"
+            className="w-full sm:w-auto px-5 sm:px-6 py-3 text-xs font-bold uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] transition-all flex items-center justify-center space-x-2 shadow-lg shadow-[#25D366]/25 rounded-sm active:scale-98 min-h-[42px]"
           >
             <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
-            <span>Continue to WhatsApp</span>
+            <span>WhatsApp पर जाएं</span>
             <ExternalLink className="w-3.5 h-3.5 ml-1 opacity-80 flex-shrink-0" />
           </a>
 

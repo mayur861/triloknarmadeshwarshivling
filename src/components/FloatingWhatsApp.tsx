@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, Sparkles } from 'lucide-react';
-import { getWhatsAppUrl, BRAND_PHONE } from '../utils/whatsapp';
+import { getWhatsAppUrl } from '../utils/whatsapp';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { ThemeToggle } from './ThemeToggle';
 import { useTheme } from '../context/ThemeContext';
@@ -26,17 +26,17 @@ export const FloatingWhatsApp: React.FC = () => {
               setShowTooltip(false);
             }}
             className={`absolute top-1.5 right-1.5 ${theme === 'white' ? 'text-[#8A8175] hover:text-black' : 'text-[#666] hover:text-white'}`}
-            aria-label="Close tooltip"
+            aria-label="सूचना बंद करें"
           >
             <X className="w-3.5 h-3.5" />
           </button>
           
           <div className="flex items-center space-x-1.5 text-[#D4AF37] font-bold text-xs uppercase tracking-wider mb-1">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Need Personal Guidance?</span>
+            <span>सीधे मार्गदर्शन चाहिए?</span>
           </div>
           <p className={`text-[11px] ${theme === 'white' ? 'text-[#57534E]' : 'text-[#AAA]'} leading-snug`}>
-            Chat directly on WhatsApp (6263540349) for custom dimensions, live photos & enquiries.
+            WhatsApp (9575501337) पर सीधे चैट करें — असली फोटो, वीडियो एवं मंदिर माप अनुसार सलाह प्राप्त करें।
           </p>
         </div>
       )}
@@ -48,7 +48,7 @@ export const FloatingWhatsApp: React.FC = () => {
         rel="noopener noreferrer"
         id="floating-whatsapp-btn"
         className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white flex items-center justify-center shadow-2xl shadow-[#25D366]/40 hover:scale-108 active:scale-95 transition-all duration-300 relative border-2 border-white/20"
-        aria-label="Chat with Trilok Shivling Art on WhatsApp"
+        aria-label="त्रिलोक शिवलिंग आर्ट से WhatsApp पर संपर्क करें"
       >
         <WhatsAppIcon className="w-7 h-7 text-white" />
         

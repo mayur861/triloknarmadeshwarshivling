@@ -7,7 +7,6 @@ import {
   AlertCircle, 
   Loader2, 
   MapPin, 
-  Sparkles,
   ArrowRight
 } from 'lucide-react';
 import { 
@@ -20,18 +19,20 @@ import {
 } from '../utils/whatsapp';
 import { EnquiryFormData } from '../types';
 import { WhatsAppIcon } from './WhatsAppIcon';
+import { useTheme } from '../context/ThemeContext';
 
 interface ContactSectionProps {
   prefilledProduct?: string;
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct }) => {
+  const { theme } = useTheme();
   const [formData, setFormData] = useState<EnquiryFormData>({
     name: '',
     phone: '',
     email: '',
     city: '',
-    productInterest: prefilledProduct || 'Narmadeshwar Shivling Collection',
+    productInterest: prefilledProduct || 'नर्मदेश्वर शिवलिंग संग्रह',
     message: '',
     honeypot: '',
   });
@@ -61,24 +62,24 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
 
       if (response.ok && data.success) {
         setStatus('success');
-        setSuccessMessage(data.message || 'Thank you! Your enquiry has been received. We will contact you shortly.');
+        setSuccessMessage(data.message || 'धन्यवाद! आपकी पूछताछ प्राप्त हो गई है। हम शीघ्र ही आपसे संपर्क करेंगे।');
         setFormData({
           name: '',
           phone: '',
           email: '',
           city: '',
-          productInterest: 'Narmadeshwar Shivling Collection',
+          productInterest: 'नर्मदेश्वर शिवलिंग संग्रह',
           message: '',
           honeypot: '',
         });
       } else {
         setStatus('error');
-        setErrorMessage(data.error || 'Failed to submit enquiry. Please call or message us on WhatsApp directly.');
+        setErrorMessage(data.error || 'पूछताछ भेजने में समस्या आई। कृपया सीधे फोन अथवा WhatsApp करें।');
       }
     } catch (err) {
       console.error('Submission error:', err);
       setStatus('error');
-      setErrorMessage('Network error while sending enquiry. Please contact us directly at 6263540349 via WhatsApp.');
+      setErrorMessage('पूछताछ भेजने में समस्या आई। कृपया WhatsApp या फोन द्वारा सीधे 9575501337 पर संपर्क करें।');
     }
   };
 
@@ -93,27 +94,27 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12 sm:mb-16">
           <div className="inline-flex items-center justify-center gap-3 mb-1">
             <div className="h-[1.5px] w-6 bg-[#D4AF37]" />
-            <span className="text-xs font-semibold tracking-[0.3em] text-[#D4AF37] uppercase">
-              Direct Devotional Assistance
+            <span className="text-xs font-semibold tracking-[0.2em] text-[#D4AF37] uppercase">
+              सीधा कारीगर संपर्क एवं सहायता
             </span>
             <div className="h-[1.5px] w-6 bg-[#D4AF37]" />
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-            Let’s Find the Right Shivling for You
+            अपने घर के मंदिर हेतु सही शिवलिंग चुनें
           </h2>
           <p className="text-sm sm:text-base text-[#B8B0A2] max-w-2xl mx-auto leading-relaxed">
-            Have a question or looking for a particular Shivling? Talk directly with Trilok Shivling Art.
+            कोई प्रश्न हो या विशेष आकार का शिवलिंग चाहिए? सीधे त्रिलोक शिवलिंग आर्ट, बकावां से संपर्क करें।
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* Left Column: Direct Contact Info & Conversion Channels */}
+          {/* Left Column: Direct Contact Info */}
           <div className="lg:col-span-5 space-y-6">
             
             <div className="p-6 sm:p-8 bg-[#161310] border border-[#2E261D] shadow-xl space-y-6 rounded-sm">
               <h3 className="font-serif text-xl font-bold text-white pb-3 border-b border-[#261F18]">
-                Direct Contacts
+                सीधे संपर्क सूत्र
               </h3>
 
               {/* Phone Card */}
@@ -122,8 +123,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] uppercase tracking-widest text-[#A89E90] font-semibold block">
-                    Phone Calling
+                  <span className="text-[10px] uppercase tracking-wider text-[#A89E90] font-semibold block">
+                    फोन कॉल
                   </span>
                   <a
                     href={getTelUrl()}
@@ -131,7 +132,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                   >
                     {BRAND_PHONE}
                   </a>
-                  <p className="text-xs text-[#A89E90] mt-0.5">Available for direct voice consultations</p>
+                  <p className="text-xs text-[#A89E90] mt-0.5">सीधी बातचीत एवं मार्गदर्शन के लिए उपलब्ध</p>
                 </div>
               </div>
 
@@ -141,8 +142,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                   <WhatsAppIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] uppercase tracking-widest text-[#A89E90] font-semibold block">
-                    WhatsApp Message
+                  <span className="text-[10px] uppercase tracking-wider text-[#A89E90] font-semibold block">
+                    WhatsApp चैट
                   </span>
                   <a
                     href={getWhatsAppUrl()}
@@ -152,7 +153,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                   >
                     {BRAND_PHONE_INTL}
                   </a>
-                  <p className="text-xs text-[#A89E90] mt-0.5">Fastest response for photos, sizes & prices</p>
+                  <p className="text-xs text-[#A89E90] mt-0.5">फोटो, वीडियो एवं मूल्य जानने हेतु सबसे तेज</p>
                 </div>
               </div>
 
@@ -162,8 +163,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="min-w-0">
-                  <span className="text-[10px] uppercase tracking-widest text-[#A89E90] font-semibold block">
-                    Official Email
+                  <span className="text-[10px] uppercase tracking-wider text-[#A89E90] font-semibold block">
+                    ईमेल आईडी
                   </span>
                   <a
                     href={getMailtoUrl()}
@@ -171,7 +172,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                   >
                     {BRAND_EMAIL}
                   </a>
-                  <p className="text-xs text-[#A89E90] mt-0.5">For detailed enquiries & institutional orders</p>
+                  <p className="text-xs text-[#A89E90] mt-0.5">संस्थागत या बड़े मंदिर ऑर्डर हेतु संपर्क करें</p>
                 </div>
               </div>
 
@@ -181,13 +182,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] uppercase tracking-widest text-[#A89E90] font-semibold block">
-                    Dispatch & Service
+                  <span className="text-[10px] uppercase tracking-wider text-[#A89E90] font-semibold block">
+                    शिल्प केंद्र एवं प्रेषण
                   </span>
                   <span className="text-sm font-bold text-white">
-                    Madhya Pradesh, India
+                    ग्राम बकावां, मध्य प्रदेश, भारत
                   </span>
-                  <p className="text-xs text-[#A89E90] mt-0.5">Secure, carefully cushioned delivery across all Indian pin codes</p>
+                  <p className="text-xs text-[#A89E90] mt-0.5">पूरे भारत के प्रत्येक पिनकोड पर सुरक्षित होम डिलीवरी</p>
                 </div>
               </div>
 
@@ -202,15 +203,19 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                 className="py-3.5 px-4 text-xs font-bold uppercase tracking-wider text-center text-white bg-[#25D366] hover:bg-[#20ba59] transition-all flex items-center justify-center space-x-2 shadow-md shadow-[#25D366]/20 rounded-sm"
               >
                 <WhatsAppIcon className="w-4 h-4" />
-                <span>WhatsApp Us</span>
+                <span>WhatsApp</span>
               </a>
 
               <a
                 href={getTelUrl()}
-                className="py-3.5 px-4 text-xs font-bold uppercase tracking-wider text-center text-white bg-[#1F1B16] hover:bg-[#29231D] border border-[#3A3024] transition-all flex items-center justify-center space-x-2 rounded-sm"
+                className={`py-3.5 px-4 text-xs font-bold uppercase tracking-wider text-center transition-all flex items-center justify-center space-x-2 rounded-sm ${
+                  theme === 'white'
+                    ? 'text-[#1C1917] bg-[#F2ECE1] hover:bg-[#EAE2D5] border border-[#DDD5C7]'
+                    : 'text-white bg-[#1F1B16] hover:bg-[#29231D] border border-[#3A3024]'
+                }`}
               >
                 <Phone className="w-4 h-4 text-[#D4AF37]" />
-                <span>Call Now</span>
+                <span>कॉल करें</span>
               </a>
             </div>
 
@@ -222,10 +227,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
               
               <div className="mb-6 pb-4 border-b border-[#261F18]">
                 <h3 className="font-serif text-lg sm:text-xl font-bold text-white">
-                  Send an Enquiry to Our Team
+                  ऑनलाइन पूछताछ फॉर्म
                 </h3>
                 <p className="text-xs text-[#B8B0A2] mt-1">
-                  Fill out the form below. We will personally respond with complete specifications, high-res photos, and pricing.
+                  नीचे दिए गए फॉर्म में अपना विवरण भरें। हम आपको पूर्ण विवरण, उच्च गुणवत्ता वाले फोटो और मूल्य के साथ संपर्क करेंगे।
                 </p>
               </div>
 
@@ -236,7 +241,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                   <div className="space-y-1">
                     <p className="font-semibold text-[#a5f3bc]">{successMessage}</p>
                     <p className="text-xs text-[#7ee787]">
-                      A confirmation has been logged. You can also chat with us on WhatsApp for faster assistance.
+                      आप तुरंत जानकारी के लिए WhatsApp पर भी चैट कर सकते हैं।
                     </p>
                   </div>
                 </div>
@@ -270,14 +275,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                   {/* Name */}
                   <div className="space-y-1.5">
                     <label htmlFor="enquiry-name" className="text-xs font-semibold text-[#C7BFB4] block">
-                      Full Name <span className="text-[#D4AF37]">*</span>
+                      पूरा नाम <span className="text-[#D4AF37]">*</span>
                     </label>
                     <input
                       id="enquiry-name"
                       type="text"
                       name="name"
                       required
-                      placeholder="e.g. Rahul Sharma"
+                      placeholder="उदा. राहुल शर्मा"
                       value={formData.name}
                       onChange={handleChange}
                       className="w-full px-4 py-3 text-xs sm:text-sm bg-[#110E0C] border border-[#2E261D] text-[#EBE5DA] placeholder-[#7A7165] focus:outline-none focus:border-[#D4AF37] transition-colors rounded-sm"
@@ -287,14 +292,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                   {/* Mobile Number */}
                   <div className="space-y-1.5">
                     <label htmlFor="enquiry-phone" className="text-xs font-semibold text-[#C7BFB4] block">
-                      Mobile / WhatsApp Number <span className="text-[#D4AF37]">*</span>
+                      मोबाइल / WhatsApp नंबर <span className="text-[#D4AF37]">*</span>
                     </label>
                     <input
                       id="enquiry-phone"
                       type="tel"
                       name="phone"
                       required
-                      placeholder="e.g. 9876543210"
+                      placeholder="उदा. 9876543210"
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 text-xs sm:text-sm bg-[#110E0C] border border-[#2E261D] text-[#EBE5DA] placeholder-[#7A7165] focus:outline-none focus:border-[#D4AF37] transition-colors rounded-sm"
@@ -306,14 +311,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                   {/* Email */}
                   <div className="space-y-1.5">
                     <label htmlFor="enquiry-email" className="text-xs font-semibold text-[#C7BFB4] block">
-                      Email Address <span className="text-[#D4AF37]">*</span>
+                      ईमेल आईडी <span className="text-[#D4AF37]">*</span>
                     </label>
                     <input
                       id="enquiry-email"
                       type="email"
                       name="email"
                       required
-                      placeholder="e.g. rahul@example.com"
+                      placeholder="उदा. rahul@example.com"
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full px-4 py-3 text-xs sm:text-sm bg-[#110E0C] border border-[#2E261D] text-[#EBE5DA] placeholder-[#7A7165] focus:outline-none focus:border-[#D4AF37] transition-colors rounded-sm"
@@ -323,13 +328,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                   {/* City */}
                   <div className="space-y-1.5">
                     <label htmlFor="enquiry-city" className="text-xs font-semibold text-[#C7BFB4] block">
-                      City / State
+                      शहर / राज्य
                     </label>
                     <input
                       id="enquiry-city"
                       type="text"
                       name="city"
-                      placeholder="e.g. Indore, MP or Mumbai"
+                      placeholder="उदा. इंदौर, म.प्र. अथवा मुंबई"
                       value={formData.city}
                       onChange={handleChange}
                       className="w-full px-4 py-3 text-xs sm:text-sm bg-[#110E0C] border border-[#2E261D] text-[#EBE5DA] placeholder-[#7A7165] focus:outline-none focus:border-[#D4AF37] transition-colors rounded-sm"
@@ -340,13 +345,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                 {/* Product Interested In */}
                 <div className="space-y-1.5">
                   <label htmlFor="enquiry-product" className="text-xs font-semibold text-[#C7BFB4] block">
-                    Product Interested In
+                    इच्छुक शिवलिंग / सेट
                   </label>
                   <input
                     id="enquiry-product"
                     type="text"
                     name="productInterest"
-                    placeholder="e.g. Sacred Tilak Narmadeshwar Shivling"
+                    placeholder="उदा. 4 इंच अखंड नर्मदेश्वर शिवलिंग"
                     value={formData.productInterest}
                     onChange={handleChange}
                     className="w-full px-4 py-3 text-xs sm:text-sm bg-[#110E0C] border border-[#2E261D] text-[#EBE5DA] placeholder-[#7A7165] focus:outline-none focus:border-[#D4AF37] transition-colors rounded-sm"
@@ -356,13 +361,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                 {/* Message */}
                 <div className="space-y-1.5">
                   <label htmlFor="enquiry-message" className="text-xs font-semibold text-[#C7BFB4] block">
-                    Specific Requirements or Questions
+                    अपनी आवश्यकता या प्रश्न लिखें
                   </label>
                   <textarea
                     id="enquiry-message"
                     name="message"
                     rows={4}
-                    placeholder="Tell us about your home mandir, temple requirements, or ask for specific natural marking photos..."
+                    placeholder="घर के मंदिर के आकार, विशेष तिलक या अन्य किसी जिज्ञासा के बारे में लिखें..."
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full px-4 py-3 text-xs sm:text-sm bg-[#110E0C] border border-[#2E261D] text-[#EBE5DA] placeholder-[#7A7165] focus:outline-none focus:border-[#D4AF37] transition-colors resize-none rounded-sm"
@@ -374,17 +379,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                   type="submit"
                   disabled={status === 'loading'}
                   id="enquiry-submit-btn"
-                  className="w-full py-4 px-6 font-bold text-xs uppercase tracking-widest text-black bg-[#D4AF37] hover:bg-[#faeac2] transition-all duration-300 shadow-lg shadow-[#D4AF37]/20 flex items-center justify-center space-x-2 cursor-pointer disabled:opacity-50 rounded-sm"
+                  className="w-full py-4 px-6 font-bold text-xs uppercase tracking-wider text-black bg-[#D4AF37] hover:bg-[#faeac2] transition-all duration-300 shadow-lg shadow-[#D4AF37]/20 flex items-center justify-center space-x-2 cursor-pointer disabled:opacity-50 rounded-sm"
                 >
                   {status === 'loading' ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin text-black" />
-                      <span>Sending Enquiry...</span>
+                      <span>भेजा जा रहा है...</span>
                     </>
                   ) : (
                     <>
                       <Send className="w-4 h-4 text-black" />
-                      <span>Send Enquiry</span>
+                      <span>पूछताछ फॉर्म भेजें</span>
                     </>
                   )}
                 </button>
@@ -396,9 +401,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                   href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#D4AF37] hover:text-white transition-colors"
+                  className={`inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider transition-colors ${
+                    theme === 'white' ? 'text-[#8F6000] hover:text-black' : 'text-[#D4AF37] hover:text-white'
+                  }`}
                 >
-                  <span>Prefer WhatsApp? Chat with us instantly</span>
+                  <span>तुरंत बातचीत हेतु WhatsApp करें</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>

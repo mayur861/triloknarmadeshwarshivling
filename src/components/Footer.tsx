@@ -10,13 +10,13 @@ export const Footer: React.FC = () => {
   };
 
   const navLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'Collection', href: '#collection' },
-    { label: 'Location', href: '#village-location' },
-    { label: 'About', href: '#about' },
-    { label: 'Why Us', href: '#why-us' },
-    { label: 'Testimonials', href: '#testimonials' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'मुख्य पृष्ठ', href: '#home' },
+    { label: 'शिवलिंग संग्रह', href: '#collection' },
+    { label: 'बकावां धाम', href: '#village-location' },
+    { label: 'हमारे बारे में', href: '#about' },
+    { label: 'विशेषताएं', href: '#why-us' },
+    { label: 'भक्तों के अनुभव', href: '#testimonials' },
+    { label: 'संपर्क करें', href: '#contact' },
   ];
 
   return (
@@ -27,33 +27,33 @@ export const Footer: React.FC = () => {
           
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-[#161310] border border-[#D4AF37]/50 flex items-center justify-center shadow-md rounded-sm">
-                <span className="font-serif text-base font-bold text-[#D4AF37]">ॐ</span>
+            <div className="flex items-center space-x-3.5 sm:space-x-4">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#161310] border-2 border-[#D4AF37]/60 flex items-center justify-center shadow-lg rounded-sm flex-shrink-0">
+                <span className="font-serif text-xl sm:text-2xl font-bold text-[#D4AF37]">ॐ</span>
               </div>
               <div>
-                <span className="block font-serif text-lg font-bold tracking-widest text-white uppercase">
-                  TRILOK SHIVLING ART
+                <span className="block font-serif text-xl sm:text-2xl md:text-3xl font-extrabold tracking-wide text-white uppercase leading-tight">
+                  TRILOK NARMADESHWAR SHIVLING ART
                 </span>
-                <span className="block text-[10px] text-[#D4AF37] font-bold tracking-[0.2em] uppercase">
-                  Shivling • Spiritual Art • Devotion
+                <span className="block text-xs sm:text-sm text-[#D4AF37] font-bold tracking-[0.15em] uppercase mt-1">
+                  प्रामाणिक स्वयंभू नर्मदेश्वर बाणलिंगम
                 </span>
               </div>
             </div>
 
             <p className="text-xs sm:text-sm text-[#A89E90] leading-relaxed max-w-sm">
-              Discover beautifully selected, sacred Narmadeshwar Shivlings and temple-inspired spiritual art pieces crafted by nature and presented with reverence.
+              माँ नर्मदा के पावन आशीर्वाद से प्राकृतिक रूप से निर्मित स्वयंभू नर्मदेश्वर शिवलिंग एवं हस्तनिर्मित संगमरमर जलाधारी सेट। बकावां (मध्य प्रदेश) से सीधा प्रेषण।
             </p>
 
             <div className="pt-2 text-xs text-[#8A8175]">
-              <span>Market / Location:</span> <strong className="text-white">India</strong> (Pan-India Inquiries)
+              <span>उत्पत्ति व केंद्र:</span> <strong className="text-white">ग्राम बकावां, मध्य प्रदेश</strong> (अखिल भारतीय डिलीवरी)
             </div>
           </div>
 
           {/* Quick Links Column */}
           <div className="md:col-span-3 space-y-3">
             <h4 className="font-serif text-xs font-bold text-white tracking-[0.2em] uppercase">
-              Quick Links
+              त्वरित लिंक
             </h4>
             <ul className="space-y-2 text-xs">
               {navLinks.map((link) => (
@@ -73,7 +73,7 @@ export const Footer: React.FC = () => {
           {/* Contact Details Column */}
           <div className="md:col-span-4 space-y-3">
             <h4 className="font-serif text-xs font-bold text-white tracking-[0.2em] uppercase">
-              Connect With Us
+              सीधा संपर्क
             </h4>
             
             <div className="space-y-2.5 text-xs">
@@ -82,7 +82,7 @@ export const Footer: React.FC = () => {
                 className="flex items-center space-x-2.5 hover:text-[#D4AF37] text-[#C7BFB4] transition-colors"
               >
                 <Phone className="w-4 h-4 text-[#D4AF37]" />
-                <span>Call: {BRAND_PHONE}</span>
+                <span>फोन: {BRAND_PHONE}</span>
               </a>
 
               <a
@@ -105,8 +105,8 @@ export const Footer: React.FC = () => {
             </div>
 
             <div className="pt-3">
-              <span className="inline-block px-3 py-1 text-[10px] uppercase tracking-widest bg-[#161310] border border-[#2E261D] text-[#A89E90] rounded-sm">
-                Direct Devotional Showroom
+              <span className="inline-block px-3 py-1 text-[10px] uppercase tracking-wider bg-[#161310] border border-[#2E261D] text-[#A89E90] rounded-sm">
+                प्रत्यक्ष शिल्पकार कार्यशाला • बकावां (म.प्र.)
               </span>
             </div>
           </div>
@@ -115,10 +115,10 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Copyright, Theme Switcher & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#7A7165]">
-          <p>© 2026 Trilok Shivling Art. All Rights Reserved.</p>
+          <p>© 2026 त्रिलोक शिवलिंग आर्ट। सर्वाधिकार सुरक्षित। (Trilok Shivling Art)</p>
           
           <div className="flex items-center space-x-2.5">
-            <span className="text-[11px] uppercase tracking-wider text-[#A89E90]">Theme:</span>
+            <span className="text-[11px] uppercase tracking-wider text-[#A89E90]">थीम:</span>
             <ThemeToggle />
           </div>
 
@@ -126,7 +126,7 @@ export const Footer: React.FC = () => {
             onClick={scrollToTop}
             className="flex items-center space-x-1.5 hover:text-[#D4AF37] text-[#A89E90] transition-colors cursor-pointer uppercase tracking-wider text-[11px]"
           >
-            <span>Back to top</span>
+            <span>शीर्ष पर जाएं (Top)</span>
             <ArrowUp className="w-3.5 h-3.5" />
           </button>
         </div>

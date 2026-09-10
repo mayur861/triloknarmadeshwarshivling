@@ -50,7 +50,7 @@ app.post('/api/enquiry', async (req: Request, res: Response) => {
     if (!checkRateLimit(clientIp)) {
       return res.status(429).json({
         success: false,
-        error: 'Too many enquiries submitted from this network. Please wait a few minutes or contact us directly on WhatsApp at 6263540349.',
+        error: 'कृपया कुछ मिनट प्रतीक्षा करें या सीधे व्हाट्सएप पर 9575501337 पर संपर्क करें।',
       });
     }
 
@@ -61,23 +61,23 @@ app.post('/api/enquiry', async (req: Request, res: Response) => {
       console.warn(`[SPAM BLOCKED] Honeypot triggered from ${clientIp}`);
       return res.status(200).json({
         success: true,
-        message: 'Thank you! Your enquiry has been received.',
+        message: 'धन्यवाद! आपकी पूछताछ प्राप्त हो गई है।',
       });
     }
 
     // Input Validations
     if (!name || String(name).trim().length < 2) {
-      return res.status(400).json({ success: false, error: 'Please enter your full name (at least 2 characters).' });
+      return res.status(400).json({ success: false, error: 'कृपया अपना पूरा नाम दर्ज करें (कम से कम 2 अक्षर)।' });
     }
 
     const phoneRegex = /^[0-9+ \-()]{7,16}$/;
     if (!phone || !phoneRegex.test(String(phone).trim())) {
-      return res.status(400).json({ success: false, error: 'Please provide a valid contact/WhatsApp phone number.' });
+      return res.status(400).json({ success: false, error: 'कृपया वैध मोबाइल अथवा व्हाट्सएप नंबर दर्ज करें।' });
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(String(email).trim())) {
-      return res.status(400).json({ success: false, error: 'Please provide a valid email address.' });
+      return res.status(400).json({ success: false, error: 'कृपया वैध ईमेल आईडी दर्ज करें।' });
     }
 
     const sanitizedData = {
@@ -153,7 +153,7 @@ app.post('/api/enquiry', async (req: Request, res: Response) => {
 
     return res.status(200).json({
       success: true,
-      message: 'Thank you! Your enquiry has been received. We will contact you shortly.',
+      message: 'धन्यवाद! आपकी पूछताछ प्राप्त हो गई है। हम शीघ्र ही आपसे संपर्क करेंगे।',
       enquiryId: `TSA-${Date.now().toString(36).toUpperCase()}`,
       data: {
         name: sanitizedData.name,
@@ -164,7 +164,7 @@ app.post('/api/enquiry', async (req: Request, res: Response) => {
     console.error('Error handling enquiry:', error);
     return res.status(500).json({
       success: false,
-      error: 'An unexpected error occurred while processing your enquiry. Please reach out to us directly on WhatsApp at 6263540349.',
+      error: 'पूछताछ संसाधित करने में समस्या आई। कृपया सीधे व्हाट्सएप पर 9575501337 पर संपर्क करें।',
     });
   }
 });

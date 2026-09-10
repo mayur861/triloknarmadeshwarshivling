@@ -1,7 +1,7 @@
 import { GalleryItem } from '../types';
 
 import sacredTilakImg from '../assets/images/sacred_tilak_original_1788179007565.jpg';
-import heroImg from '../assets/images/hero_shivling_1788175936922.jpg';
+import heroImg from '../assets/images/janeudhari.webp';
 import narmadaRiverImg from '../assets/images/narmada_river_1788175952822.jpg';
 import homeMandirImg from '../assets/images/home_mandir_shivling_1788175979627.jpg';
 import specialPedestalImg from '../assets/images/special_pedestal_shivling_1788175998310.jpg';
