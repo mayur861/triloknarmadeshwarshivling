@@ -145,11 +145,11 @@
   color: #37332E !important;
 }
 
-/* WhatsApp buttons text protection: always keep white text on green */
-.theme-white a[href*="wa.me"],
-.theme-white a[href*="whatsapp"],
+/* WhatsApp green buttons text protection: keep white text ONLY on green background buttons */
 .theme-white .bg-\[\#25D366\],
-.theme-white .bg-\[\#25D366\] * {
+.theme-white .bg-\[\#25D366\] *,
+.theme-white button.bg-\[\#25D366\],
+.theme-white a.bg-\[\#25D366\] {
   color: #ffffff !important;
 }
 

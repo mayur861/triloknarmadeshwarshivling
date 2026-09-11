@@ -161,25 +161,25 @@ export const VillageLocationMap: React.FC = () => {
                     theme === 'white' ? 'bg-[#F5F1E9] border-[#DDD5C7]' : 'bg-[#120F0C] border-[#261F18]'
                   }`}>
                     <span className={theme === 'white' ? 'text-[#57534E]' : 'text-[#A89E90]'}>बड़वाह:</span>
-                    <span className={`font-bold ${theme === 'white' ? 'text-[#1C1917]' : 'text-[#EBE5DA]'}`}>~15 किमी</span>
-                  </div>
-                  <div className={`p-2 sm:p-2.5 flex items-center justify-between border rounded-sm ${
-                    theme === 'white' ? 'bg-[#F5F1E9] border-[#DDD5C7]' : 'bg-[#120F0C] border-[#261F18]'
-                  }`}>
-                    <span className={theme === 'white' ? 'text-[#57534E]' : 'text-[#A89E90]'}>ओंकारेश्वर ज्योतिर्लिंग:</span>
-                    <span className={`font-bold ${theme === 'white' ? 'text-[#1C1917]' : 'text-[#EBE5DA]'}`}>~38 किमी</span>
-                  </div>
-                  <div className={`p-2 sm:p-2.5 flex items-center justify-between border rounded-sm ${
-                    theme === 'white' ? 'bg-[#F5F1E9] border-[#DDD5C7]' : 'bg-[#120F0C] border-[#261F18]'
-                  }`}>
-                    <span className={theme === 'white' ? 'text-[#57534E]' : 'text-[#A89E90]'}>महेश्वर:</span>
                     <span className={`font-bold ${theme === 'white' ? 'text-[#1C1917]' : 'text-[#EBE5DA]'}`}>~45 किमी</span>
                   </div>
                   <div className={`p-2 sm:p-2.5 flex items-center justify-between border rounded-sm ${
                     theme === 'white' ? 'bg-[#F5F1E9] border-[#DDD5C7]' : 'bg-[#120F0C] border-[#261F18]'
                   }`}>
+                    <span className={theme === 'white' ? 'text-[#57534E]' : 'text-[#A89E90]'}>ओंकारेश्वर ज्योतिर्लिंग:</span>
+                    <span className={`font-bold ${theme === 'white' ? 'text-[#1C1917]' : 'text-[#EBE5DA]'}`}>~48 किमी</span>
+                  </div>
+                  <div className={`p-2 sm:p-2.5 flex items-center justify-between border rounded-sm ${
+                    theme === 'white' ? 'bg-[#F5F1E9] border-[#DDD5C7]' : 'bg-[#120F0C] border-[#261F18]'
+                  }`}>
+                    <span className={theme === 'white' ? 'text-[#57534E]' : 'text-[#A89E90]'}>महेश्वर:</span>
+                    <span className={`font-bold ${theme === 'white' ? 'text-[#1C1917]' : 'text-[#EBE5DA]'}`}>~50 किमी</span>
+                  </div>
+                  <div className={`p-2 sm:p-2.5 flex items-center justify-between border rounded-sm ${
+                    theme === 'white' ? 'bg-[#F5F1E9] border-[#DDD5C7]' : 'bg-[#120F0C] border-[#261F18]'
+                  }`}>
                     <span className={theme === 'white' ? 'text-[#57534E]' : 'text-[#A89E90]'}>इंदौर हवाईअड्डा:</span>
-                    <span className={`font-bold ${theme === 'white' ? 'text-[#1C1917]' : 'text-[#EBE5DA]'}`}>~85 किमी</span>
+                    <span className={`font-bold ${theme === 'white' ? 'text-[#1C1917]' : 'text-[#EBE5DA]'}`}>~90 किमी</span>
                   </div>
                 </div>
               </div>
@@ -210,9 +210,11 @@ export const VillageLocationMap: React.FC = () => {
                   rel="noopener noreferrer"
                   id="btn-village-whatsapp"
                   className="py-2.5 px-2 sm:px-3 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-1.5 shadow-md shadow-[#25D366]/20 transition-all active:scale-98 min-h-[42px]"
+                  title={`WhatsApp: +91 ${BRAND_PHONE}`}
                 >
                   <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
-                  <span>WhatsApp</span>
+                  <span className="hidden min-[360px]:inline">WhatsApp: {BRAND_PHONE}</span>
+                  <span className="min-[360px]:hidden">WhatsApp</span>
                 </a>
 
                 <a
@@ -223,9 +225,11 @@ export const VillageLocationMap: React.FC = () => {
                       ? 'bg-[#F2ECE1] hover:bg-[#EAE2D5] border border-[#DDD5C7] text-[#1C1917]'
                       : 'bg-[#1F1B16] hover:bg-[#29231D] border border-[#3A3024] text-white'
                   }`}
+                  title={`Call ${BRAND_PHONE}`}
                 >
                   <Phone className="w-3.5 h-3.5 text-[#D4AF37] flex-shrink-0" />
-                  <span>कॉल करें</span>
+                  <span className="hidden min-[360px]:inline">कॉल: {BRAND_PHONE}</span>
+                  <span className="min-[360px]:hidden">कॉल करें</span>
                 </a>
               </div>
             </div>

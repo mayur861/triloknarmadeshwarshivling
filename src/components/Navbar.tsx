@@ -236,9 +236,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnquiryModal }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-3 px-4 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] transition-colors text-center flex items-center justify-center space-x-2 shadow-md shadow-[#25D366]/20"
+                title={`WhatsApp: +91 ${BRAND_PHONE}`}
               >
                 <WhatsAppIcon className="w-4 h-4" />
-                <span>WhatsApp पर संपर्क करें</span>
+                <span>WhatsApp (+91 {BRAND_PHONE})</span>
               </a>
 
               <a

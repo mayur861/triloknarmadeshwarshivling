@@ -35,8 +35,8 @@ export const FloatingWhatsApp: React.FC = () => {
             <Sparkles className="w-3.5 h-3.5" />
             <span>सीधे मार्गदर्शन चाहिए?</span>
           </div>
-          <p className={`text-[11px] ${theme === 'white' ? 'text-[#57534E]' : 'text-[#AAA]'} leading-snug`}>
-            WhatsApp (9575501337) पर सीधे चैट करें — असली फोटो, वीडियो एवं मंदिर माप अनुसार सलाह प्राप्त करें।
+          <p className={`text-[11px] ${theme === 'white' ? 'text-[#37332E]' : 'text-[#D1C7B7]'} leading-snug`}>
+            WhatsApp (<strong className={`font-bold ${theme === 'white' ? 'text-[#15803d]' : 'text-[#25D366]'}`}>+91 9575501337</strong>) पर सीधे चैट करें — असली फोटो, वीडियो एवं मंदिर माप अनुसार सलाह प्राप्त करें।
           </p>
         </div>
       )}

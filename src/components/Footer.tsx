@@ -3,8 +3,10 @@ import { Phone, Mail, ArrowUp } from 'lucide-react';
 import { BRAND_PHONE, BRAND_EMAIL, getWhatsAppUrl, getTelUrl, getMailtoUrl } from '../utils/whatsapp';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { ThemeToggle } from './ThemeToggle';
+import { useTheme } from '../context/ThemeContext';
 
 export const Footer: React.FC = () => {
+  const { theme } = useTheme();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -79,27 +81,33 @@ export const Footer: React.FC = () => {
             <div className="space-y-2.5 text-xs">
               <a
                 href={getTelUrl()}
-                className="flex items-center space-x-2.5 hover:text-[#D4AF37] text-[#C7BFB4] transition-colors"
+                className={`flex items-center space-x-2.5 transition-colors font-medium ${
+                  theme === 'white' ? 'text-[#292524] hover:text-[#8F6000]' : 'text-[#EBE5DA] hover:text-[#D4AF37]'
+                }`}
               >
-                <Phone className="w-4 h-4 text-[#D4AF37]" />
-                <span>फोन: {BRAND_PHONE}</span>
+                <Phone className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
+                <span>फोन: <strong className="font-bold tracking-wide">{BRAND_PHONE}</strong></span>
               </a>
 
               <a
                 href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2.5 hover:text-[#25D366] text-[#C7BFB4] transition-colors"
+                className={`flex items-center space-x-2.5 transition-colors font-medium ${
+                  theme === 'white' ? 'text-[#15803d] hover:text-[#166534]' : 'text-[#25D366] hover:text-white'
+                }`}
               >
-                <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
-                <span>WhatsApp: +91 {BRAND_PHONE}</span>
+                <WhatsAppIcon className="w-4 h-4 text-[#25D366] flex-shrink-0" />
+                <span>WhatsApp: <strong className="font-bold tracking-wide">+91 {BRAND_PHONE}</strong></span>
               </a>
 
               <a
                 href={getMailtoUrl()}
-                className="flex items-center space-x-2.5 hover:text-[#D4AF37] text-[#C7BFB4] transition-colors break-all"
+                className={`flex items-center space-x-2.5 transition-colors break-all ${
+                  theme === 'white' ? 'text-[#44403C] hover:text-[#8F6000]' : 'text-[#C7BFB4] hover:text-[#D4AF37]'
+                }`}
               >
-                <Mail className="w-4 h-4 text-[#D4AF37]" />
+                <Mail className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
                 <span>{BRAND_EMAIL}</span>
               </a>
             </div>

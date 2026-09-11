@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Product } from '../types';
 import { getProductWhatsAppUrl, getTelUrl, BRAND_PHONE } from '../utils/whatsapp';
 import { X, Phone, Mail, Sparkles, ShieldCheck, Droplets } from 'lucide-react';
@@ -9,19 +9,21 @@ interface ProductDetailModalProps {
   product: Product | null;
   onClose: () => void;
   onOpenEnquiryModal: (productName?: string) => void;
-  onOpenWhatsAppRedirect?: (product: Product) => void;
 }
 
 export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   product,
   onClose,
   onOpenEnquiryModal,
-  onOpenWhatsAppRedirect,
 }) => {
   const { theme } = useTheme();
-  if (!product) return null;
-
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  useEffect(() => {
+    setActiveImageIndex(0);
+  }, [product?.id]);
+
+  if (!product) return null;
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-3 sm:p-6 bg-[#070605]/90 backdrop-blur-md animate-in fade-in duration-200">
@@ -213,29 +215,22 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           </div>
 
           <div className="grid grid-cols-2 sm:flex items-center gap-2 sm:gap-2.5 w-full sm:w-auto">
-            {/* WhatsApp Enquiry Button */}
-            <button
-              type="button"
-              onClick={() => {
-                if (onOpenWhatsAppRedirect) {
-                  onClose();
-                  onOpenWhatsAppRedirect(product);
-                } else {
-                  window.open(
-                    getProductWhatsAppUrl(
-                      product.name,
-                      product.priceFormatted,
-                      product.images[activeImageIndex] || product.images[0]
-                    ),
-                    '_blank'
-                  );
-                }
-              }}
+            {/* Direct WhatsApp Enquiry Link */}
+            <a
+              href={getProductWhatsAppUrl(
+                product.name,
+                `${product.dimensions || ''} | ${product.priceFormatted}`,
+                product.images[activeImageIndex] || product.images[0]
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
               className="col-span-2 sm:col-auto px-4 sm:px-5 py-3 font-bold text-xs uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] transition-all flex items-center justify-center space-x-2 shadow-md shadow-[#25D366]/25 rounded-sm cursor-pointer min-h-[42px]"
+              title={`WhatsApp: +91 ${BRAND_PHONE}`}
             >
               <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
-              <span>WhatsApp पूछताछ</span>
-            </button>
+              <span className="hidden min-[420px]:inline">WhatsApp (+91 {BRAND_PHONE})</span>
+              <span className="min-[420px]:hidden">WhatsApp पर चैट</span>
+            </a>
 
             {/* Direct Call Button */}
             <a
@@ -248,7 +243,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               title={`Call ${BRAND_PHONE}`}
             >
               <Phone className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
-              <span>कॉल करें</span>
+              <span className="hidden min-[420px]:inline">कॉल: {BRAND_PHONE}</span>
+              <span className="min-[420px]:hidden">कॉल करें</span>
             </a>
 
             {/* Send Enquiry by Email */}

@@ -128,7 +128,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                   </span>
                   <a
                     href={getTelUrl()}
-                    className="text-base sm:text-lg font-bold text-white hover:text-[#D4AF37] transition-colors"
+                    className={`text-base sm:text-lg font-bold transition-colors inline-block ${
+                      theme === 'white' ? 'text-[#1C1917] hover:text-[#8F6000]' : 'text-white hover:text-[#D4AF37]'
+                    }`}
                   >
                     {BRAND_PHONE}
                   </a>
@@ -149,7 +151,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledProduct
                     href={getWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-base sm:text-lg font-bold text-white hover:text-[#25D366] transition-colors"
+                    className={`text-base sm:text-lg font-bold transition-colors inline-block ${
+                      theme === 'white' ? 'text-[#15803d] hover:text-[#166534]' : 'text-[#25D366] hover:text-white'
+                    }`}
                   >
                     {BRAND_PHONE_INTL}
                   </a>

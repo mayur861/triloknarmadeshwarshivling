@@ -5,7 +5,6 @@ import { Hero } from './components/Hero';
 import { Collection } from './components/Collection';
 import { VillageLocationMap } from './components/VillageLocationMap';
 import { ProductDetailModal } from './components/ProductDetailModal';
-import { WhatsAppImageRedirectModal } from './components/WhatsAppImageRedirectModal';
 import { AboutUs } from './components/AboutUs';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { Testimonials } from './components/Testimonials';
@@ -20,7 +19,6 @@ function AppContent() {
   const { theme } = useTheme();
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory>('all');
   const [activeModalProduct, setActiveModalProduct] = useState<Product | null>(null);
-  const [whatsAppRedirectProduct, setWhatsAppRedirectProduct] = useState<Product | null>(null);
   const [isEnquiryModalOpen, setIsEnquiryModalOpen] = useState(false);
   const [enquiryDefaultProduct, setEnquiryDefaultProduct] = useState<string | undefined>(undefined);
 
@@ -58,7 +56,6 @@ function AppContent() {
           onSelectCategory={setSelectedCategory}
           onOpenProductModal={(product) => setActiveModalProduct(product)}
           onOpenEnquiryModal={handleOpenEnquiryModal}
-          onOpenWhatsAppRedirect={(product) => setWhatsAppRedirectProduct(product)}
         />
 
         {/* 4. Bakawan Village, Madhya Pradesh Location Map & Navigation */}
@@ -81,18 +78,13 @@ function AppContent() {
       <Footer />
 
       {/* Product Detail Modal */}
-      <ProductDetailModal
-        product={activeModalProduct}
-        onClose={() => setActiveModalProduct(null)}
-        onOpenEnquiryModal={handleOpenEnquiryModal}
-        onOpenWhatsAppRedirect={(product) => setWhatsAppRedirectProduct(product)}
-      />
-
-      {/* WhatsApp Image Generator Redirect Modal */}
-      <WhatsAppImageRedirectModal
-        product={whatsAppRedirectProduct}
-        onClose={() => setWhatsAppRedirectProduct(null)}
-      />
+      {activeModalProduct && (
+        <ProductDetailModal
+          product={activeModalProduct}
+          onClose={() => setActiveModalProduct(null)}
+          onOpenEnquiryModal={handleOpenEnquiryModal}
+        />
+      )}
 
       {/* Direct Quick Enquiry Modal */}
       <DirectEnquiryModal

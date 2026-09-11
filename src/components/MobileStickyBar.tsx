@@ -23,10 +23,12 @@ export const MobileStickyBar: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           id="mobile-sticky-whatsapp"
+          title={`WhatsApp: +91 ${BRAND_PHONE}`}
           className="py-3 px-2 font-bold text-xs uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] flex items-center justify-center space-x-1.5 shadow-md shadow-[#25D366]/25 active:scale-95 transition-transform rounded-sm min-h-[44px]"
         >
           <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
-          <span>WhatsApp</span>
+          <span className="hidden min-[400px]:inline">WhatsApp: {BRAND_PHONE}</span>
+          <span className="min-[400px]:hidden">WhatsApp</span>
         </a>
 
         {/* Direct Call Button */}

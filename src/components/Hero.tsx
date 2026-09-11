@@ -28,14 +28,14 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
         />
       </div>
 
-      <section id="home" className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-16 lg:py-24 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <section id="home" className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-12 sm:py-16 lg:py-24 z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Story & Call to Action */}
-          <div className="lg:col-span-7 flex flex-col justify-center text-left">
+          {/* Story & Call to Action Column (Desktop: Left, Mobile: Below Image) */}
+          <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col justify-center text-left">
             
             {/* Top Divider & Category Eyebrow */}
-            <div className="mb-4 flex items-center gap-3">
+            <div className="mb-3 sm:mb-4 flex items-center gap-3">
               <div className="h-[1.5px] w-8 bg-[#D4AF37]" />
               <span className="text-[#D4AF37] text-xs uppercase tracking-[0.2em] font-semibold">
                 माँ नर्मदा का पावन उपहार
@@ -48,7 +48,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
               <span className="italic text-[#D4AF37]">शाश्वत भक्ति एवं शांति।</span>
             </h1>
 
-            {/* Subheading */}
+            {/* Subheading / About Text */}
             <p className="text-[#B8B0A2] text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 max-w-xl font-sans">
               माँ नर्मदा के पावन जल प्रवाह से स्वतः निर्मित स्वयंभू नर्मदेश्वर शिवलिंग — सीधे बकावां (मध्य प्रदेश) के कुशल शिल्पकारों द्वारा पूर्ण श्रद्धा, पवित्रता और सुरक्षा के साथ आपके घर के मंदिर हेतु।
             </p>
@@ -81,6 +81,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="hero-whatsapp-btn"
+                title={`WhatsApp: +91 ${BRAND_PHONE}`}
                 className={`w-full sm:w-auto px-5 sm:px-6 py-3.5 sm:py-4 border text-xs sm:text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center space-x-2 shadow-sm ${
                   theme === 'white'
                     ? 'bg-[#25D366] hover:bg-[#20ba59] border-[#25D366] text-white shadow-md shadow-[#25D366]/20'
@@ -88,7 +89,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
                 }`}
               >
                 <WhatsAppIcon className={`w-4 h-4 ${theme === 'white' ? 'text-white' : 'text-[#25D366] group-hover:text-black'} transition-colors`} />
-                <span>WhatsApp</span>
+                <span className="hidden min-[480px]:inline">WhatsApp: +91 {BRAND_PHONE}</span>
+                <span className="min-[480px]:hidden">WhatsApp</span>
               </a>
             </div>
 
@@ -105,17 +107,17 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
 
           </div>
 
-          {/* Right Column: Hero Visual Showcase */}
-          <div className="lg:col-span-5 relative flex items-center justify-center overflow-hidden pt-4 lg:pt-0">
+          {/* Hero Visual Showcase (Desktop: Right, Mobile: Top / Upper Side) */}
+          <div className="order-1 lg:order-2 lg:col-span-5 relative flex items-center justify-center overflow-hidden">
             <div
               className="absolute inset-0 opacity-30 pointer-events-none"
               style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #D4AF37 0%, transparent 70%)' }}
             />
             
-            <div className="relative z-10 w-full max-w-md sm:max-w-lg lg:max-w-[460px] xl:max-w-[500px] bg-[#161310] rounded-2xl sm:rounded-t-[140px] border border-[#2E261D] shadow-2xl p-3 sm:p-5 flex flex-col items-center justify-center group">
+            <div className="relative z-10 w-full max-w-sm sm:max-w-md lg:max-w-[460px] xl:max-w-[500px] bg-[#161310] rounded-2xl sm:rounded-t-[140px] border border-[#2E261D] shadow-2xl p-3 sm:p-5 flex flex-col items-center justify-center group">
               
               {/* Arched Stone Visual Card - Perfectly proportioned 3:4 aspect ratio for full photo visibility */}
-              <div className="relative w-full aspect-[3/4] min-h-[360px] sm:min-h-[440px] md:min-h-[500px] lg:min-h-[540px] max-h-[620px] rounded-xl sm:rounded-t-[120px] overflow-hidden border border-[#3E3326] shadow-[0_10px_40px_rgba(212,175,55,0.22)] bg-gradient-to-b from-[#221C16] to-[#120F0C]">
+              <div className="relative w-full aspect-[3/4] min-h-[300px] sm:min-h-[420px] md:min-h-[480px] lg:min-h-[540px] max-h-[620px] rounded-xl sm:rounded-t-[120px] overflow-hidden border border-[#3E3326] shadow-[0_10px_40px_rgba(212,175,55,0.22)] bg-gradient-to-b from-[#221C16] to-[#120F0C]">
                 <img
                   src={heroImg}
                   alt="बकावां से मूल जनेऊधारी नर्मदेश्वर शिवलिंग एवं हस्तनिर्मित जलाधारी"
@@ -130,11 +132,11 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
               </div>
 
               {/* Signature Caption */}
-              <div className="mt-4 flex flex-col items-center text-center">
+              <div className="mt-3 sm:mt-4 flex flex-col items-center text-center">
                 <span className="text-[#D4AF37] text-xs tracking-[0.2em] uppercase mb-1 font-bold">
                   विशेष स्वयंभू स्वरूप
                 </span>
-                <span className="text-white font-serif italic text-lg sm:text-xl">
+                <span className="text-white font-serif italic text-base sm:text-xl">
                   जनेऊधारी नर्मदेश्वर बाणलिंगम
                 </span>
               </div>

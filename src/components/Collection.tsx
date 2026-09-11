@@ -18,7 +18,6 @@ export const Collection: React.FC<CollectionProps> = ({
   selectedCategory,
   onSelectCategory,
   onOpenProductModal,
-  onOpenWhatsAppRedirect,
 }) => {
   const { theme } = useTheme();
   const [searchQuery, setSearchQuery] = useState('');
@@ -197,29 +196,22 @@ export const Collection: React.FC<CollectionProps> = ({
                   {/* Action Buttons Grid: WhatsApp + Contact ONLY */}
                   <div className="grid grid-cols-2 gap-2 pt-1">
                     
-                    {/* Enquire / Order on WhatsApp with Generated Card */}
-                    <button
-                      type="button"
-                      onClick={() => {
-                        if (onOpenWhatsAppRedirect) {
-                          onOpenWhatsAppRedirect(product);
-                        } else {
-                          window.open(
-                            getProductWhatsAppUrl(product.name, product.priceFormatted, product.images[0]),
-                            '_blank'
-                          );
-                        }
-                      }}
+                    {/* Direct WhatsApp Order / Enquiry Link */}
+                    <a
+                      href={getProductWhatsAppUrl(product.name, product.priceFormatted, product.images[0])}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full py-2.5 px-2 sm:px-3 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] transition-all flex items-center justify-center space-x-1.5 shadow-md shadow-[#25D366]/25 active:scale-98 rounded-sm cursor-pointer min-h-[42px]"
-                      title="WhatsApp कार्ड बनाएं और तुरंत चैट करें"
+                      title={`WhatsApp पर संपर्क करें: +91 ${BRAND_PHONE}`}
                     >
                       <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
                       <span>WhatsApp</span>
-                    </button>
+                    </a>
 
                     {/* Contact Option */}
                     <a
                       href={getTelUrl()}
+                      title={`सीधे कॉल करें: ${BRAND_PHONE}`}
                       className={`w-full py-2.5 px-2 sm:px-3 text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center space-x-1.5 active:scale-98 rounded-sm min-h-[42px] ${
                         theme === 'white'
                           ? 'text-[#1C1917] bg-[#F2ECE1] hover:bg-[#EAE2D5] border border-[#DDD5C7] hover:border-[#8F6000]/60'
