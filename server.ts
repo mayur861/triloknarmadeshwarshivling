@@ -42,6 +42,16 @@ app.get('/api/health', (_req: Request, res: Response) => {
   });
 });
 
+// Download Complete Website Project Zip
+app.get('/api/download-website-zip', (_req: Request, res: Response) => {
+  const zipPath = path.join(process.cwd(), 'trilok-shivling-art-website.zip');
+  res.download(zipPath, 'trilok-shivling-art-website.zip', (err) => {
+    if (err && !res.headersSent) {
+      res.status(500).json({ error: 'Zip download failed' });
+    }
+  });
+});
+
 // Production-ready Enquiry Submission API
 app.post('/api/enquiry', async (req: Request, res: Response) => {
   try {

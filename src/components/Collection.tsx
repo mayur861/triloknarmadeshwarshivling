@@ -60,7 +60,7 @@ export const Collection: React.FC<CollectionProps> = ({
             हमारा पावन शिवलिंग संग्रह
           </h2>
           <p className="text-sm sm:text-base text-[#B8B0A2] max-w-2xl mx-auto">
-            माँ नर्मदा के पवित्र पत्थरों से बकावां में निर्मित प्रामाणिक नर्मदेश्वर शिवलिंग — सीधी कारीगर दर व सुरक्षित होम डिलीवरी।
+            माँ नर्मदा के पवित्र पत्थरों से बकावां में निर्मित प्रामाणिक नर्मदेश्वर शिवलिंग — सीधा कारीगर संपर्क व सुरक्षित होम डिलीवरी।
           </p>
         </div>
 
@@ -142,17 +142,10 @@ export const Collection: React.FC<CollectionProps> = ({
                     <div className="absolute top-3 left-3 px-2.5 sm:px-3 py-1 bg-[#110E0C]/90 backdrop-blur-md text-[10px] font-semibold tracking-wider uppercase text-[#D4AF37] border border-[#D4AF37]/30">
                       {product.categoryName}
                     </div>
-
-                    {/* Discount Badge */}
-                    {product.discountPercent && (
-                      <div className="absolute top-3 right-3 px-2.5 py-1 bg-[#D4AF37] text-black text-[10px] font-black uppercase tracking-wider shadow-md">
-                        {product.discountPercent}
-                      </div>
-                    )}
                   </div>
 
                   {/* Product Details Header */}
-                  <div className="p-5 sm:p-6 pb-2 space-y-2.5 sm:space-y-3">
+                  <div className="p-5 sm:p-6 pb-4 space-y-2.5 sm:space-y-3">
                     <h3 
                       onClick={() => onOpenProductModal?.(product)}
                       className="font-serif text-base sm:text-lg font-bold text-white group-hover:text-[#D4AF37] transition-colors cursor-pointer"
@@ -166,63 +159,35 @@ export const Collection: React.FC<CollectionProps> = ({
                   </div>
                 </div>
 
-                {/* Price & Action Buttons Footer (WhatsApp + Contact ONLY) */}
-                <div className="p-5 sm:p-6 pt-4 border-t border-[#261F18] space-y-4">
-                  
-                  {/* Prominent Price Display */}
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <span className="text-[10px] text-[#8A8175] uppercase tracking-wider block font-semibold">सीधी कारीगर दर</span>
-                      <div className="flex items-baseline space-x-2">
-                        <span className="text-base sm:text-lg font-bold text-[#D4AF37] tracking-wide font-serif">
-                          {product.priceFormatted}
-                        </span>
-                        {product.originalPriceFormatted && (
-                          <span className="text-xs text-[#7A7165] line-through">
-                            {product.originalPriceFormatted}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                    <span className={`text-[10px] uppercase tracking-wider px-2.5 py-1 font-semibold ${
-                      theme === 'white'
-                        ? 'text-[#292524] bg-[#F2ECE1] border border-[#DDD5C7]'
-                        : 'text-[#C7BFB4] bg-[#120F0C] border border-[#2E261D]'
-                    }`}>
-                      सुरक्षित पैकिंग
-                    </span>
-                  </div>
-
-                  {/* Action Buttons Grid: WhatsApp + Contact ONLY */}
-                  <div className="grid grid-cols-2 gap-2 pt-1">
-                    
+                {/* Action Buttons Footer (WhatsApp + Contact ONLY) */}
+                <div className="px-5 sm:px-6 py-4 border-t border-[#261F18]">
+                  <div className="grid grid-cols-1 min-[390px]:grid-cols-[1.5fr_1fr] gap-2.5">
                     {/* Direct WhatsApp Order / Enquiry Link */}
                     <a
-                      href={getProductWhatsAppUrl(product.name, product.priceFormatted, product.images[0])}
+                      href={getProductWhatsAppUrl(product.name, product.categoryName, product.images[0])}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full py-2.5 px-2 sm:px-3 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] transition-all flex items-center justify-center space-x-1.5 shadow-md shadow-[#25D366]/25 active:scale-98 rounded-sm cursor-pointer min-h-[42px]"
-                      title={`WhatsApp पर संपर्क करें: +91 ${BRAND_PHONE}`}
+                      className="w-full py-2.5 px-3 text-[11px] sm:text-xs font-bold tracking-normal text-white bg-[#25D366] hover:bg-[#20ba59] transition-all flex items-center justify-center space-x-1.5 shadow-md shadow-[#25D366]/25 active:scale-98 rounded-sm cursor-pointer min-h-[42px] whitespace-nowrap"
+                      title={`WhatsApp में जानकारी लें: +91 ${BRAND_PHONE}`}
                     >
                       <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
-                      <span>WhatsApp</span>
+                      <span>WhatsApp में जानकारी लें</span>
                     </a>
 
                     {/* Contact Option */}
                     <a
                       href={getTelUrl()}
-                      title={`सीधे कॉल करें: ${BRAND_PHONE}`}
-                      className={`w-full py-2.5 px-2 sm:px-3 text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center space-x-1.5 active:scale-98 rounded-sm min-h-[42px] ${
+                      title={`संपर्क करें: +91 ${BRAND_PHONE}`}
+                      className={`w-full py-2.5 px-3 text-[11px] sm:text-xs font-bold tracking-normal transition-colors flex items-center justify-center space-x-1.5 active:scale-98 rounded-sm min-h-[42px] whitespace-nowrap ${
                         theme === 'white'
                           ? 'text-[#1C1917] bg-[#F2ECE1] hover:bg-[#EAE2D5] border border-[#DDD5C7] hover:border-[#8F6000]/60'
                           : 'text-white bg-[#1F1B16] hover:bg-[#29231D] border border-[#3A3024] hover:border-[#D4AF37]/50'
                       }`}
                     >
                       <Phone className="w-3.5 h-3.5 text-[#D4AF37] flex-shrink-0" />
-                      <span>कॉल करें</span>
+                      <span>संपर्क करें</span>
                     </a>
                   </div>
-
                 </div>
 
               </div>

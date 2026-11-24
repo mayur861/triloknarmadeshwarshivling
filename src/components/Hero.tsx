@@ -154,7 +154,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
         </div>
       </section>
 
-      {/* 4-Pillars Horizontal Strip */}
+      {/* 4-Pillars Horizontal Strip (commented out)
       <section className="bg-[#13100D] border-t border-[#261F18] py-10 px-6 sm:px-10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col border-l border-[#2D241C] pl-6 hover:border-[#D4AF37] transition-colors">
@@ -198,6 +198,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
           </div>
         </div>
       </section>
+      */}
     </div>
   );
 };

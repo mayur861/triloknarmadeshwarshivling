@@ -11,10 +11,6 @@ export interface Product {
   categoryName: string;
   shortDesc: string;
   fullDesc: string;
-  price: number;
-  priceFormatted: string;
-  originalPriceFormatted?: string;
-  discountPercent?: string;
   material: string;
   origin: string;
   spiritualSignificance: string;

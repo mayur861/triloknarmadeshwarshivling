@@ -22,5 +22,12 @@
     },
     "allowImportingTsExtensions": true,
     "noEmit": true
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "trilok-shivling-art-website",
+    "website-export",
+    "*.zip"
+  ]
 }

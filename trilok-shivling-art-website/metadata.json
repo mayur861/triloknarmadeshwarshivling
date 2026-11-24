@@ -1,0 +1,6 @@
+{
+  "name": "Trilok Shivling Art",
+  "description": "त्रिलोक शिवलिंग आर्ट - बकावां (मध्य प्रदेश) से सीधे प्रामाणिक नर्मदेश्वर शिवलिंग, बाणलिंग एवं घर के मंदिर हेतु संपूर्ण अभिषेक सेट का पावन संग्रह।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

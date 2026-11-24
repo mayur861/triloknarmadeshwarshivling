@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Product } from '../types';
 import { getProductWhatsAppUrl, getTelUrl, BRAND_PHONE } from '../utils/whatsapp';
-import { X, Phone, Mail, Sparkles, ShieldCheck, Droplets } from 'lucide-react';
+import { X, Phone, Sparkles, ShieldCheck, Droplets } from 'lucide-react';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { useTheme } from '../context/ThemeContext';
 
 interface ProductDetailModalProps {
   product: Product | null;
   onClose: () => void;
-  onOpenEnquiryModal: (productName?: string) => void;
+  onOpenEnquiryModal?: (productName?: string) => void;
 }
 
 export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   product,
   onClose,
-  onOpenEnquiryModal,
 }) => {
   const { theme } = useTheme();
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -67,7 +66,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute bottom-3 left-3 px-3 py-1 bg-[#0C0A09]/90 border border-[#D4AF37]/40 text-[10px] uppercase font-bold tracking-wider text-[#D4AF37] rounded-sm">
-                  {product.priceFormatted} • पवित्र स्वयंभू नर्मदा पाषाण
+                  पवित्र स्वयंभू नर्मदा पाषाण
                 </div>
               </div>
 
@@ -118,30 +117,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 <p className="text-xs text-[#D4AF37] font-semibold uppercase tracking-wider mt-1">
                   उद्गम: {product.origin}
                 </p>
-              </div>
-
-              {/* Price Banner */}
-              <div className="p-4 bg-[#110E0C] border border-[#2E261D] flex items-center justify-between rounded-sm">
-                <div>
-                  <span className="text-[10px] text-[#8A8175] uppercase tracking-wider block font-semibold">
-                    सीधी कारीगर दर
-                  </span>
-                  <div className="flex items-baseline space-x-2.5">
-                    <span className="text-2xl font-serif font-bold text-[#D4AF37]">
-                      {product.priceFormatted}
-                    </span>
-                    {product.originalPriceFormatted && (
-                      <span className="text-xs text-[#7A7165] line-through">
-                        {product.originalPriceFormatted}
-                      </span>
-                    )}
-                  </div>
-                </div>
-                {product.discountPercent && (
-                  <span className="text-xs uppercase font-bold tracking-wider text-black bg-[#D4AF37] px-2.5 py-1 rounded-sm">
-                    {product.discountPercent}
-                  </span>
-                )}
               </div>
 
               {/* Full Description */}
@@ -214,54 +189,37 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             लाइव फोटो, वीडियो, पैकिंग और पूरे भारत में सुरक्षित डिलीवरी के लिए सीधे संपर्क करें।
           </div>
 
-          <div className="grid grid-cols-2 sm:flex items-center gap-2 sm:gap-2.5 w-full sm:w-auto">
+          <div className="grid grid-cols-1 min-[420px]:grid-cols-[1.45fr_1fr] sm:flex items-center gap-2.5 w-full sm:w-auto">
             {/* Direct WhatsApp Enquiry Link */}
             <a
               href={getProductWhatsAppUrl(
                 product.name,
-                `${product.dimensions || ''} | ${product.priceFormatted}`,
+                product.categoryName,
                 product.images[activeImageIndex] || product.images[0]
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="col-span-2 sm:col-auto px-4 sm:px-5 py-3 font-bold text-xs uppercase tracking-wider text-white bg-[#25D366] hover:bg-[#20ba59] transition-all flex items-center justify-center space-x-2 shadow-md shadow-[#25D366]/25 rounded-sm cursor-pointer min-h-[42px]"
-              title={`WhatsApp: +91 ${BRAND_PHONE}`}
+              className="px-4 sm:px-5 py-3 font-bold text-xs tracking-normal text-white bg-[#25D366] hover:bg-[#20ba59] transition-all flex items-center justify-center space-x-2 shadow-md shadow-[#25D366]/25 rounded-sm cursor-pointer min-h-[42px] whitespace-nowrap"
+              title={`WhatsApp में जानकारी लें: +91 ${BRAND_PHONE}`}
             >
               <WhatsAppIcon className="w-4 h-4 flex-shrink-0" />
-              <span className="hidden min-[420px]:inline">WhatsApp (+91 {BRAND_PHONE})</span>
-              <span className="min-[420px]:hidden">WhatsApp पर चैट</span>
+              <span>WhatsApp में जानकारी लें</span>
             </a>
 
-            {/* Direct Call Button */}
+            {/* Direct Contact / Call Button */}
             <a
               href={getTelUrl()}
-              className={`col-span-1 sm:col-auto px-3 sm:px-4 py-3 font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center space-x-1.5 rounded-sm min-h-[42px] ${
+              className={`px-4 sm:px-5 py-3 font-bold text-xs tracking-normal transition-colors flex items-center justify-center space-x-1.5 rounded-sm min-h-[42px] whitespace-nowrap ${
                 theme === 'white'
-                  ? 'text-[#1C1917] bg-[#F2ECE1] hover:bg-[#EAE2D5] border border-[#DDD5C7]'
-                  : 'text-white bg-[#1C1712] hover:bg-[#261F18] border border-[#3A3024]'
+                  ? 'text-[#1C1917] bg-[#F2ECE1] hover:bg-[#EAE2D5] border border-[#DDD5C7] hover:border-[#8F6000]/60'
+                  : 'text-white bg-[#1C1712] hover:bg-[#261F18] border border-[#3A3024] hover:border-[#D4AF37]/50'
               }`}
-              title={`Call ${BRAND_PHONE}`}
+              title={`संपर्क करें: +91 ${BRAND_PHONE}`}
             >
               <Phone className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
-              <span className="hidden min-[420px]:inline">कॉल: {BRAND_PHONE}</span>
-              <span className="min-[420px]:hidden">कॉल करें</span>
+              <span className="hidden sm:inline">संपर्क करें ({BRAND_PHONE})</span>
+              <span className="sm:hidden">संपर्क करें</span>
             </a>
-
-            {/* Send Enquiry by Email */}
-            <button
-              onClick={() => {
-                onClose();
-                onOpenEnquiryModal(product.name);
-              }}
-              className={`col-span-1 sm:col-auto px-3 sm:px-4 py-3 font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center space-x-1.5 cursor-pointer rounded-sm min-h-[42px] ${
-                theme === 'white'
-                  ? 'text-[#1C1917] bg-[#F2ECE1] hover:bg-[#EAE2D5] border border-[#DDD5C7]'
-                  : 'text-white bg-[#1C1712] hover:bg-[#261F18] border border-[#3A3024]'
-              }`}
-            >
-              <Mail className="w-4 h-4 text-[#D4AF37] flex-shrink-0" />
-              <span>फॉर्म भरें</span>
-            </button>
           </div>
 
         </div>
